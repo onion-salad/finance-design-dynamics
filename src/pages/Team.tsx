@@ -33,7 +33,7 @@ const TeamPage = () => {
           <section className="mt-24 mb-12">
             <h2 className="text-3xl font-bold text-center mb-8">所在地</h2>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <LoadScript googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY || ""}>
+              <LoadScript googleMapsApiKey="AIzaSyCqtgd2QSzOYRXsKUtO4glUxScnNy-inQY">
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
                   center={center}
