@@ -19,16 +19,27 @@ interface AchievementCarouselProps {
 
 const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
   const [api, setApi] = useState<any>(null);
+  const [shouldAutoPlay, setShouldAutoPlay] = useState(true);
 
   useEffect(() => {
     if (!api) return;
+
+    // 画面幅に応じて表示できる数を計算
+    const containerWidth = api.containerNode().offsetWidth;
+    const slideWidth = api.slideNodes()[0].offsetWidth;
+    const visibleSlides = Math.floor(containerWidth / slideWidth);
+
+    // プロジェクト数が表示できる数より少ない場合は自動再生をオフ
+    setShouldAutoPlay(projects.length > visibleSlides);
+
+    if (!shouldAutoPlay) return;
 
     const interval = setInterval(() => {
       api.scrollNext();
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [api]);
+  }, [api, projects.length, shouldAutoPlay]);
 
   return (
     <Carousel
@@ -52,10 +63,12 @@ const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="hidden md:block">
-        <CarouselPrevious className="absolute -left-12 top-1/2 transform -translate-y-1/2" />
-        <CarouselNext className="absolute -right-12 top-1/2 transform -translate-y-1/2" />
-      </div>
+      {projects.length > 3 && (
+        <div className="hidden md:block">
+          <CarouselPrevious className="absolute -left-12 top-1/2 transform -translate-y-1/2" />
+          <CarouselNext className="absolute -right-12 top-1/2 transform -translate-y-1/2" />
+        </div>
+      )}
     </Carousel>
   );
 };
