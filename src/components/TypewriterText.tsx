@@ -20,13 +20,13 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
           transition: { duration: 0 }
         });
         
-        // 1文字ずつフェードイン
+        // 1文字ずつフェードイン（速度を上げる）
         for (let i = 0; i < text.length; i++) {
           await controls.start(index => ({
             opacity: index <= i ? 1 : 0,
             transition: {
-              duration: 0.15,
-              delay: index === i ? 0.1 : 0
+              duration: 0.08, // 0.15から0.08に短縮
+              delay: index === i ? 0.05 : 0 // 0.1から0.05に短縮
             }
           }));
         }
@@ -36,7 +36,7 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
           y: 0,
           transition: {
             delay,
-            duration: 0.8,
+            duration: 0.4, // 0.8から0.4に短縮
             ease: "easeOut"
           }
         });
