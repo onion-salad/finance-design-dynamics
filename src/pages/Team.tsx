@@ -11,8 +11,8 @@ const TeamPage = () => {
   };
 
   const center = {
-    lat: 35.6812362,
-    lng: 139.7671248,
+    lat: 35.681236,  // 丸の内の緯度
+    lng: 139.767125  // 丸の内の経度
   };
 
   return (
