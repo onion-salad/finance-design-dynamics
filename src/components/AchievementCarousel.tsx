@@ -22,17 +22,21 @@ const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
         align: "start",
         loop: true,
       }}
-      className="w-full"
+      className="w-full relative"
     >
-      <CarouselContent>
+      <CarouselContent className="-ml-2 md:-ml-4">
         {projects.map((project, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <AchievementCard title={project.title} Icon={project.icon} />
+          <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+            <div className="p-1">
+              <AchievementCard title={project.title} Icon={project.icon} />
+            </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <div className="hidden md:block">
+        <CarouselPrevious className="absolute -left-12 top-1/2 transform -translate-y-1/2" />
+        <CarouselNext className="absolute -right-12 top-1/2 transform -translate-y-1/2" />
+      </div>
     </Carousel>
   );
 };
