@@ -7,32 +7,32 @@ const TeamGrid = () => {
     {
       name: "出川貴史",
       position: "代表取締役",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "佐藤充洋",
       position: "取締役",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "石川章由",
       position: "執行役員",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "藤井隆徳",
       position: "執行役員",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "澤田",
       position: "アドバイザー",
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "鄭秀和",
       position: "アドバイザー",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+      image: "/placeholder.svg"
     }
   ];
 

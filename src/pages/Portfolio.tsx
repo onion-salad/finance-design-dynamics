@@ -9,19 +9,19 @@ const Portfolio = () => {
       name: "TechVenture株式会社",
       industry: "AI・機械学習",
       description: "次世代AIプラットフォームの開発",
-      image: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?auto=format&fit=crop&w=800&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "GreenEnergy株式会社",
       industry: "再生可能エネルギー",
       description: "持続可能なエネルギーソリューション",
-      image: "https://images.unsplash.com/photo-1498936178812-4b2e558d2937?auto=format&fit=crop&w=800&q=80"
+      image: "/placeholder.svg"
     },
     {
       name: "HealthTech株式会社",
       industry: "医療テクノロジー",
       description: "革新的な医療機器の開発",
-      image: "https://images.unsplash.com/photo-1439886183900-e79ec0057170?auto=format&fit=crop&w=800&q=80"
+      image: "/placeholder.svg"
     }
   ];
 

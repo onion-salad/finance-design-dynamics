@@ -15,11 +15,11 @@ const HeroSection = () => {
       >
         <picture>
           <source
-            srcSet="/hero-image.webp"
+            srcSet="/placeholder.svg"
             type="image/webp"
           />
           <img
-            src="/hero-image.jpg"
+            src="/placeholder.svg"
             alt="Concentric株式会社のオフィスビル"
             className="w-full h-full object-cover"
             loading="eager"
