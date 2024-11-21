@@ -1,12 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Achievement from "@/components/Achievement";
 import Team from "@/components/Team";
-import HeroSection from "@/components/HeroSection";
-import MorphingTimeline from "@/components/MorphingTimeline";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import TypewriterText from "@/components/TypewriterText";
 
 const Index = () => {
   return (
@@ -14,7 +13,40 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
-        <HeroSection />
+        {/* ヒーローセクション */}
+        <section className="relative h-[calc(100vh-64px)] flex items-center justify-center translate-y-[-10%] text-center px-4">
+          <div className="absolute inset-0 -z-10">
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+              alt="Background"
+              className="w-full h-full object-cover fixed"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
+          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white max-w-4xl mx-auto space-y-2"
+          >
+            <TypewriterText
+              text="金融に情熱を"
+              className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
+              delay={0.5}
+              typewriter={true}
+            />
+            <TypewriterText
+              text="人と向き合い、その先へ。"
+              className="text-xl md:text-2xl mb-2 font-light"
+              delay={2}
+            />
+            <TypewriterText
+              text="Designing the future finance."
+              className="text-lg md:text-xl text-gray-200 font-light"
+              delay={2}
+            />
+          </motion.div>
+        </section>
 
         {/* ビジョンセクション */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -103,7 +135,56 @@ const Index = () => {
         </section>
 
         {/* サービスセクション */}
-        <MorphingTimeline />
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold mb-6">Our Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                豊富な経験と専門知識を活かし、お客様のニーズに合わせた最適なソリューションを提供します。
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: ChartBar,
+                  title: "M&A・業務提携",
+                  description: "戦略的なM&Aと業務提携で、企業の成長をサポートします。",
+                },
+                {
+                  icon: Building2,
+                  title: "ファイナンス",
+                  description: "最適な資金調達方法を提案し、企業の財務戦略を支援します。",
+                },
+                {
+                  icon: Users,
+                  title: "アドバイザリー",
+                  description: "専門知識と経験を活かし、的確なアドバイスを提供します。",
+                },
+              ].map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
+                >
+                  <service.icon className="w-16 h-16 text-primary mb-6" />
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-600 text-lg">{service.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <Achievement />
 
