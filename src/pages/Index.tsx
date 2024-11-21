@@ -2,7 +2,6 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import Achievement from "@/components/Achievement";
 import TeamGrid from "@/components/TeamGrid";
-import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
       <ServicesSection />
       <Achievement />
       <TeamGrid />
-      <Footer />
     </div>
   );
 };
