@@ -27,17 +27,17 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white max-w-4xl mx-auto"
+            className="text-white max-w-4xl mx-auto space-y-2"
           >
             <TypewriterText
               text="金融に情熱を"
-              className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+              className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
               delay={0.5}
               typewriter={true}
             />
             <TypewriterText
               text="人と向き合い、その先へ。"
-              className="text-2xl md:text-3xl mb-6 font-medium"
+              className="text-2xl md:text-3xl mb-2 font-light"
               delay={2}
             />
             <TypewriterText
