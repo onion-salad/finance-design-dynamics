@@ -18,7 +18,7 @@ const TypewriterText = ({ text, className = "", delay = 0 }: TypewriterTextProps
       });
       
       await controls.start(i => ({
-        width: "100%",
+        width: "auto",
         transition: {
           delay: delay + i * 0.05,
           duration: 0.1
@@ -30,19 +30,19 @@ const TypewriterText = ({ text, className = "", delay = 0 }: TypewriterTextProps
   }, [controls, delay]);
 
   return (
-    <div className={`inline-block ${className}`}>
+    <span className={`inline-flex flex-nowrap whitespace-nowrap ${className}`}>
       {text.split("").map((char, i) => (
         <motion.span
           key={i}
           custom={i}
           animate={controls}
           initial={{ width: 0, opacity: 0 }}
-          className="inline-block whitespace-pre"
+          style={{ display: 'inline-block', whiteSpace: 'pre' }}
         >
           {char}
         </motion.span>
       ))}
-    </div>
+    </span>
   );
 };
 
