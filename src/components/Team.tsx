@@ -41,22 +41,39 @@ const Team = () => {
     <section className="py-20 px-4 bg-gradient-to-br from-secondary via-white to-secondary">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">メンバー</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {members.map((member, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ 
+                opacity: 0, 
+                x: index % 2 === 0 ? -100 : 100,
+                width: "100%"
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0,
+                transition: {
+                  type: "spring",
+                  bounce: 0.2,
+                  duration: 0.8,
+                  delay: index * 0.1
+                }
+              }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               className={cn(
-                "w-full sm:w-[90%]",
+                "w-full md:w-full",
                 // スマホ表示時の左右配置
-                index % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto"
+                "flex",
+                index % 2 === 0 ? "justify-start" : "justify-end"
               )}
             >
               <Card 
-                className="group overflow-hidden hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl border-accent/10"
+                className={cn(
+                  "group overflow-hidden hover:scale-105 transition-all duration-300",
+                  "bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl border-accent/10",
+                  "w-[90%] md:w-full" // スマホ時は90%幅、PC時は100%幅
+                )}
               >
                 <CardContent className="p-0">
                   <div className="aspect-square relative w-full bg-gradient-to-br from-primary/5 to-accent/5 overflow-hidden">
