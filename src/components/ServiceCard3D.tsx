@@ -19,6 +19,11 @@ const ServiceCard3D = ({ icon: Icon, title, description, index }: ServiceCard3DP
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
 
   const handleMove = (event: React.TouchEvent | React.MouseEvent) => {
+    // タッチイベント中はスクロールを防ぐ
+    if ('touches' in event) {
+      event.preventDefault();
+    }
+
     const rect = event.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -55,7 +60,7 @@ const ServiceCard3D = ({ icon: Icon, title, description, index }: ServiceCard3DP
         perspective: "1500px",
         transformStyle: "preserve-3d",
       }}
-      className="relative w-full sm:w-[350px] h-[400px]"
+      className="relative w-full sm:w-[350px] h-[400px] touch-none"
     >
       <motion.div
         style={{
