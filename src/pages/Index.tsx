@@ -10,6 +10,14 @@ const Index = () => {
       
       <main className="pt-16">
         <section className="relative h-screen flex items-center justify-center text-center px-4">
+          <div className="absolute inset-0 -z-10">
+            <img
+              src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&q=80"
+              alt="Background"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20" />
+          </div>
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-primary">金融に情熱を</span>
@@ -21,7 +29,14 @@ const Index = () => {
           </div>
         </section>
         
-        <section className="py-20 px-4 bg-black/30">
+        <section className="py-20 px-4 bg-black/30 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <img
+              src="https://images.unsplash.com/photo-1527576539890-dfa815648363?auto=format&fit=crop&q=80"
+              alt="Vision Background"
+              className="w-full h-full object-cover opacity-10"
+            />
+          </div>
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-8">
               金融という無形の価値に
@@ -63,7 +78,6 @@ const Index = () => {
 
         <Team />
 
-        {/* Footer Section */}
         <footer className="bg-primary text-white py-16 px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
