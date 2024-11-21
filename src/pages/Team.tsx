@@ -11,8 +11,8 @@ const TeamPage = () => {
   };
 
   const center = {
-    lat: 35.68462371826172,  // 丸の内の緯度
-    lng: 139.76121520996094  // 丸の内の経度
+    lat: 35.68462371826172,
+    lng: 139.76121520996094
   };
 
   return (
@@ -37,7 +37,7 @@ const TeamPage = () => {
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
                   center={center}
-                  zoom={13}
+                  zoom={16}
                 >
                   <Marker position={center} />
                 </GoogleMap>

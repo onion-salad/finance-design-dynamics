@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const mapContainerStyle = {
@@ -19,6 +20,15 @@ const Index = () => {
     lat: 35.68462371826172,
     lng: 139.76121520996094
   };
+
+  const menuItems = [
+    { title: "ホーム", path: "/" },
+    { title: "サービス", path: "/services" },
+    { title: "投資先", path: "/portfolio" },
+    { title: "チーム", path: "/team" },
+    { title: "ニュース", path: "/news" },
+    { title: "お問い合わせ", path: "/contact" },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -126,14 +136,14 @@ const Index = () => {
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
                   center={center}
-                  zoom={13}
+                  zoom={16}
                 >
                   <Marker position={center} />
                 </GoogleMap>
               </LoadScript>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">Concentric株式会社</h3>
                 <div className="space-y-2">
@@ -153,29 +163,18 @@ const Index = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-bold mb-4">サービス</h3>
-                <ul className="space-y-2">
-                  <li>M&A・業務提携</li>
-                  <li>ファイナンス</li>
-                  <li>アドバイザリー</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-4">企業情報</h3>
-                <ul className="space-y-2">
-                  <li>会社概要</li>
-                  <li>チーム</li>
-                  <li>ニュース</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
-                <ul className="space-y-2">
-                  <li>お問い合わせフォーム</li>
-                  <li>採用情報</li>
-                  <li>プライバシーポリシー</li>
+                <h3 className="text-xl font-bold mb-4">メニュー</h3>
+                <ul className="grid grid-cols-2 gap-2">
+                  {menuItems.map((item) => (
+                    <li key={item.path}>
+                      <Link 
+                        to={item.path}
+                        className="hover:text-gray-300 transition-colors"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
