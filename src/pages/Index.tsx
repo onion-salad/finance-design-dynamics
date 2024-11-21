@@ -193,7 +193,7 @@ const Index = () => {
         <footer className="bg-primary text-white py-16 px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Growth Capital</h3>
+              <h3 className="text-xl font-bold mb-4">Concentric株式会社</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
@@ -239,7 +239,7 @@ const Index = () => {
           </div>
           
           <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/20 text-center">
-            <p>&copy; 2024 Growth Capital. All rights reserved.</p>
+            <p>&copy; 2024 Concentric株式会社. All rights reserved.</p>
           </div>
         </footer>
       </main>
