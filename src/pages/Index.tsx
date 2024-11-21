@@ -87,7 +87,7 @@ const Index = () => {
                       delay: index * 0.1
                     }}
                     className={cn(
-                      "bg-white p-8 rounded-2xl shadow-[0_8px_16px_-6px_rgba(0,0,0,0.12)] hover:shadow-xl transition-all",
+                      "bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all",
                       item.className,
                       index % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto",
                       "w-full sm:w-[90%]"
