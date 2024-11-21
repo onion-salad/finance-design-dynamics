@@ -36,19 +36,19 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-accent/10">
+    <section className="py-20 px-4 bg-secondary">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">メンバー</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {members.map((member, index) => (
-            <Card key={index} className="overflow-hidden hover:scale-105 transition-transform bg-secondary/50 backdrop-blur-sm border-accent/20">
+            <Card key={index} className="overflow-hidden hover:scale-105 transition-transform bg-white border border-gray-200">
               <CardContent className="p-0">
                 <div className="aspect-square relative">
-                  <User className="w-full h-full p-12 text-accent/50" />
+                  <User className="w-full h-full p-12 text-gray-300" />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-accent">{member.position}</p>
+                  <h3 className="text-xl font-bold mb-2 text-primary">{member.name}</h3>
+                  <p className="text-gray-600">{member.position}</p>
                 </div>
               </CardContent>
             </Card>
