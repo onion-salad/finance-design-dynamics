@@ -1,11 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Achievement from "@/components/Achievement";
 import Team from "@/components/Team";
+import HeroSection from "@/components/HeroSection";
 import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import TypewriterText from "@/components/TypewriterText";
 
 const Index = () => {
   return (
@@ -13,40 +13,7 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
-        {/* ヒーローセクション */}
-        <section className="relative h-[calc(100vh-64px)] flex items-center justify-center translate-y-[-10%] text-center px-4">
-          <div className="absolute inset-0 -z-10">
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
-              alt="Background"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
-          </div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white max-w-4xl mx-auto space-y-2"
-          >
-            <TypewriterText
-              text="金融に情熱を"
-              className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
-              delay={0.5}
-              typewriter={true}
-            />
-            <TypewriterText
-              text="人と向き合い、その先へ。"
-              className="text-xl md:text-2xl mb-2 font-light"
-              delay={2}
-            />
-            <TypewriterText
-              text="Designing the future finance."
-              className="text-lg md:text-xl text-gray-200 font-light"
-              delay={2}
-            />
-          </motion.div>
-        </section>
+        <HeroSection />
 
         {/* ビジョンセクション */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
