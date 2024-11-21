@@ -10,28 +10,9 @@ const HeroSection = () => {
   return (
     <section className="relative h-[calc(100vh-64px)] flex items-center justify-center translate-y-[-10%] text-center px-4">
       <motion.div 
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 to-black/50"
         style={{ y }}
-      >
-        <picture>
-          <source
-            srcSet="/placeholder.svg"
-            type="image/webp"
-          />
-          <img
-            src="/placeholder.svg"
-            alt="Concentric株式会社のオフィスビル"
-            className="w-full h-full object-cover"
-            loading="eager"
-            width="1920"
-            height="1080"
-            fetchPriority="high"
-            decoding="async"
-            style={{ contentVisibility: 'auto' }}
-          />
-        </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
-      </motion.div>
+      />
       
       <motion.div 
         style={{ opacity }}

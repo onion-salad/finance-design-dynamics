@@ -6,33 +6,27 @@ const TeamGrid = () => {
   const members = [
     {
       name: "出川貴史",
-      position: "代表取締役",
-      image: "/placeholder.svg"
+      position: "代表取締役"
     },
     {
       name: "佐藤充洋",
-      position: "取締役",
-      image: "/placeholder.svg"
+      position: "取締役"
     },
     {
       name: "石川章由",
-      position: "執行役員",
-      image: "/placeholder.svg"
+      position: "執行役員"
     },
     {
       name: "藤井隆徳",
-      position: "執行役員",
-      image: "/placeholder.svg"
+      position: "執行役員"
     },
     {
       name: "澤田",
-      position: "アドバイザー",
-      image: "/placeholder.svg"
+      position: "アドバイザー"
     },
     {
       name: "鄭秀和",
-      position: "アドバイザー",
-      image: "/placeholder.svg"
+      position: "アドバイザー"
     }
   ];
 
@@ -74,50 +68,14 @@ const TeamGrid = () => {
                   "md:hover:scale-105"
                 )}
               >
-                <CardContent className="p-0">
-                  <div className={cn(
-                    "relative w-full overflow-hidden",
-                    "md:aspect-square",
-                    "h-32 md:h-auto",
-                  )}>
-                    {/* 背景画像 */}
-                    <div className="absolute inset-0">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    
-                    {/* スマホ時の暗い背景オーバーレイ */}
-                    <div className={cn(
-                      "absolute inset-0",
-                      "md:hidden",
-                      "bg-gradient-to-r from-primary/90 to-primary/80"
-                    )} />
-                    
-                    {/* スマホ時のコンテンツ配置 */}
-                    <div className={cn(
-                      "relative h-full flex flex-col justify-end px-6 pb-4",
-                      "md:hidden",
-                      index % 2 === 0 ? "items-start" : "items-end"
-                    )}>
-                      <h3 className="text-2xl font-bold mb-1 text-white">
-                        {member.name}
-                      </h3>
-                      <p className="text-white/80">{member.position}</p>
-                    </div>
-                    
-                    {/* PC時の情報表示部分 */}
-                    <div className={cn(
-                      "absolute bottom-0 left-0 right-0 p-4 text-center bg-white/90 backdrop-blur-sm",
-                      "hidden md:block"
-                    )}>
-                      <h3 className="text-lg font-bold mb-1 text-primary transition-colors">
-                        {member.name}
-                      </h3>
-                      <p className="text-sm text-gray-600">{member.position}</p>
-                    </div>
+                <CardContent className="p-6">
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-2xl font-bold mb-2 text-primary">
+                      {member.name}
+                    </h3>
+                    <p className="text-lg text-muted-foreground">
+                      {member.position}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
