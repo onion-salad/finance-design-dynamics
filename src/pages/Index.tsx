@@ -1,7 +1,8 @@
 import Navigation from "@/components/Navigation";
 import Achievement from "@/components/Achievement";
 import Team from "@/components/Team";
-import { ChartBar, Building2, Users, MapPin, Phone, Mail } from "lucide-react";
+import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   return (
@@ -18,34 +19,63 @@ const Index = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20" />
           </div>
-          <div className="animate-fade-in">
+          <div className="animate-fade-in text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-primary">金融に情熱を</span>
+              金融に情熱を
             </h1>
             <p className="text-xl md:text-2xl mb-4">人と向き合い、その先へ。</p>
-            <p className="text-lg md:text-xl text-gray-400">
+            <p className="text-lg md:text-xl text-gray-200">
               Designing the future finance.
             </p>
           </div>
         </section>
         
-        <section className="py-20 px-4 bg-black/30 relative overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <img
-              src="https://images.unsplash.com/photo-1527576539890-dfa815648363?auto=format&fit=crop&q=80"
-              alt="Vision Background"
-              className="w-full h-full object-cover opacity-10"
-            />
-          </div>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8">
-              金融という無形の価値に
-              <br />
-              デザインという存在の意味を！
-            </h2>
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                  金融という無形の価値に
+                  <br />
+                  デザインという存在の意味を！
+                </h2>
+                <p className="text-lg text-gray-600">
+                  私たちは、金融の世界に革新的なデザインと新しい価値を創造します。
+                  従来の枠組みを超えて、より多くの人々にアクセシブルで意味のある金融サービスを提供することを目指しています。
+                </p>
+                <div className="flex items-center gap-4">
+                  <Button className="group">
+                    詳しく見る
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-primary/5 p-6 rounded-lg">
+                    <h3 className="text-xl font-bold mb-2">Innovation</h3>
+                    <p className="text-gray-600">革新的な金融ソリューション</p>
+                  </div>
+                  <div className="bg-primary/5 p-6 rounded-lg translate-y-8">
+                    <h3 className="text-xl font-bold mb-2">Design</h3>
+                    <p className="text-gray-600">洗練されたデザイン思考</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-primary/5 p-6 rounded-lg translate-y-4">
+                    <h3 className="text-xl font-bold mb-2">Trust</h3>
+                    <p className="text-gray-600">確かな信頼関係の構築</p>
+                  </div>
+                  <div className="bg-primary/5 p-6 rounded-lg translate-y-12">
+                    <h3 className="text-xl font-bold mb-2">Growth</h3>
+                    <p className="text-gray-600">持続的な成長の実現</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        
+
         <section className="py-20 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
