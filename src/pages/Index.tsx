@@ -19,7 +19,7 @@ const Index = () => {
             <img
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
               alt="Background"
-              className="w-full h-full object-cover fixed"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
           </div>
