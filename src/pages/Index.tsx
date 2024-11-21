@@ -33,6 +33,7 @@ const Index = () => {
               text="金融に情熱を"
               className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
               delay={0.5}
+              typewriter={true}
             />
             <TypewriterText
               text="人と向き合い、その先へ。"
@@ -42,7 +43,7 @@ const Index = () => {
             <TypewriterText
               text="Designing the future finance."
               className="text-xl md:text-2xl text-gray-200 font-light"
-              delay={3}
+              delay={2}
             />
           </motion.div>
         </section>
