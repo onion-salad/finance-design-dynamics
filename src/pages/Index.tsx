@@ -36,7 +36,7 @@ const Index = () => {
             </p>
           </motion.div>
         </section>
-        
+
         {/* ビジョンセクション */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4">
@@ -73,36 +73,48 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="grid grid-cols-2 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               >
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="space-y-6"
-                >
-                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Innovation</h3>
-                    <p className="text-gray-600">革新的な金融ソリューション</p>
-                  </div>
-                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-8">
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Design</h3>
-                    <p className="text-gray-600">洗練されたデザイン思考</p>
-                  </div>
-                </motion.div>
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="space-y-6"
-                >
-                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-4">
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Trust</h3>
-                    <p className="text-gray-600">確かな信頼関係の構築</p>
-                  </div>
-                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-12">
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Growth</h3>
-                    <p className="text-gray-600">持続的な成長の実現</p>
-                  </div>
-                </motion.div>
+                {[
+                  {
+                    title: "Innovation",
+                    description: "革新的な金融ソリューション",
+                    className: "sm:translate-y-0 md:translate-y-0"
+                  },
+                  {
+                    title: "Design",
+                    description: "洗練されたデザイン思考",
+                    className: "sm:translate-x-8 md:translate-y-8"
+                  },
+                  {
+                    title: "Trust",
+                    description: "確かな信頼関係の構築",
+                    className: "sm:-translate-x-8 md:translate-y-4"
+                  },
+                  {
+                    title: "Growth",
+                    description: "持続的な成長の実現",
+                    className: "sm:translate-x-0 md:translate-y-12"
+                  }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={cn(
+                      "bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all",
+                      item.className,
+                      // スマホ表示時の左右配置
+                      index % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto",
+                      "w-full sm:w-[90%]"
+                    )}
+                  >
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
           </div>
