@@ -30,7 +30,7 @@ const TypewriterText = ({ text, className = "", delay = 0 }: TypewriterTextProps
   }, [controls, delay]);
 
   return (
-    <div className={`inline-flex flex-wrap items-center justify-center ${className}`}>
+    <div className={`inline-block ${className}`}>
       {text.split("").map((char, i) => (
         <motion.span
           key={i}
