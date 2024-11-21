@@ -2,20 +2,18 @@ import { motion } from "framer-motion";
 import Team from "@/components/Team";
 import Navigation from "@/components/Navigation";
 import { MapPin } from "lucide-react";
-import { useEffect } from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const TeamPage = () => {
-  useEffect(() => {
-    // Google Maps の JavaScript API を動的に読み込み
-    const script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLxHArVRGVwbGX2bfXivhsrB6RqDjapk&callback=console.debug&libraries=maps,marker&v=beta";
-    script.async = true;
-    document.head.appendChild(script);
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+  };
 
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  const center = {
+    lat: 35.6812362,
+    lng: 139.7671248,
+  };
 
   return (
     <div className="min-h-screen">
@@ -34,18 +32,16 @@ const TeamPage = () => {
 
           <section className="mt-24 mb-12">
             <h2 className="text-3xl font-bold text-center mb-8">所在地</h2>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ height: "400px" }}>
-              <gmp-map 
-                center="35.6812362,139.7671248" 
-                zoom="17" 
-                map-id="DEMO_MAP_ID"
-                style={{ width: "100%", height: "100%" }}
-              >
-                <gmp-advanced-marker 
-                  position="35.6812362,139.7671248" 
-                  title="当社の所在地"
-                ></gmp-advanced-marker>
-              </gmp-map>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <LoadScript googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY || ""}>
+                <GoogleMap
+                  mapContainerStyle={mapContainerStyle}
+                  center={center}
+                  zoom={17}
+                >
+                  <Marker position={center} />
+                </GoogleMap>
+              </LoadScript>
             </div>
             
             <div className="mt-8 text-center">
