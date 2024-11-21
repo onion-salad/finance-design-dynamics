@@ -73,7 +73,7 @@ const Index = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               >
                 {[
@@ -103,7 +103,11 @@ const Index = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ 
+                      duration: 0.5,
+                      ease: "easeOut",
+                      delay: index * 0.1
+                    }}
                     className={cn(
                       "bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all",
                       item.className,
