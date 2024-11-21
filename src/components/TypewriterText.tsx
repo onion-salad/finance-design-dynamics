@@ -17,19 +17,16 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
         // 全ての文字を一旦非表示に
         await controls.start({
           opacity: 0,
-          x: -20,
           transition: { duration: 0 }
         });
         
-        // 1文字ずつフェードインとスライドイン
+        // 1文字ずつフェードイン
         for (let i = 0; i < text.length; i++) {
           await controls.start(index => ({
             opacity: index <= i ? 1 : 0,
-            x: index <= i ? 0 : -20,
             transition: {
               duration: 0.15,
-              delay: index === i ? 0.1 : 0,
-              ease: "easeOut"
+              delay: index === i ? 0.1 : 0
             }
           }));
         }
@@ -56,18 +53,12 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
           key={i}
           custom={i}
           animate={controls}
-          initial={typewriter ? { opacity: 0, x: -20 } : { opacity: 0, y: 20 }}
+          initial={typewriter ? { opacity: 0 } : { opacity: 0, y: 20 }}
           style={{ display: 'inline-block', whiteSpace: 'pre' }}
         >
           {char}
         </motion.span>
       ))}
-      {typewriter && (
-        <span className="inline-block w-[2px] h-[1em] bg-white animate-[blink_1s_infinite]" style={{
-          animation: 'blink 1s infinite',
-        }}>
-        </span>
-      )}
     </span>
   );
 };
