@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 必要最小限のスタイルのみを定義 */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -27,21 +28,26 @@
     --ring: 0 0% 20%;
     --radius: 0.5rem;
   }
+
+  * {
+    @apply border-border;
+  }
   
   html {
     scroll-behavior: smooth;
-    font-display: swap;
+  }
+  
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+    position: relative;
   }
   
   body {
     @apply bg-background text-foreground;
-    width: 100%;
-    position: relative;
-    overflow-x: hidden;
   }
 
   img {
     @apply max-w-full h-auto;
-    content-visibility: auto;
   }
 }

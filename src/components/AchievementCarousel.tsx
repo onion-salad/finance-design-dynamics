@@ -7,12 +7,13 @@ import {
 } from "@/components/ui/carousel";
 import AchievementCard from "./AchievementCard";
 import { LucideIcon } from "lucide-react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 interface AchievementCarouselProps {
   projects: {
     title: string;
     icon: LucideIcon;
+    imageUrl: string;
   }[];
 }
 
@@ -20,32 +21,25 @@ const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
   const [api, setApi] = useState<any>(null);
   const [shouldAutoPlay, setShouldAutoPlay] = useState(true);
 
-  const updateAutoPlay = useCallback(() => {
-    if (!api) return;
-    const containerWidth = api.containerNode().offsetWidth;
-    const slideWidth = api.slideNodes()[0].offsetWidth;
-    const visibleSlides = Math.floor(containerWidth / slideWidth);
-    setShouldAutoPlay(projects.length > visibleSlides);
-  }, [api, projects.length]);
-
   useEffect(() => {
     if (!api) return;
 
-    updateAutoPlay();
-    window.addEventListener('resize', updateAutoPlay);
+    // 画面幅に応じて表示できる数を計算
+    const containerWidth = api.containerNode().offsetWidth;
+    const slideWidth = api.slideNodes()[0].offsetWidth;
+    const visibleSlides = Math.floor(containerWidth / slideWidth);
 
-    let interval: number;
-    if (shouldAutoPlay) {
-      interval = window.setInterval(() => {
-        requestAnimationFrame(() => api.scrollNext());
-      }, 1500);
-    }
+    // プロジェクト数が表示できる数より少ない場合は自動再生をオフ
+    setShouldAutoPlay(projects.length > visibleSlides);
 
-    return () => {
-      window.removeEventListener('resize', updateAutoPlay);
-      if (interval) clearInterval(interval);
-    };
-  }, [api, projects.length, shouldAutoPlay, updateAutoPlay]);
+    if (!shouldAutoPlay) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [api, projects.length, shouldAutoPlay]);
 
   return (
     <Carousel
@@ -58,14 +52,12 @@ const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
     >
       <CarouselContent className="-ml-2 md:-ml-4">
         {projects.map((project, index) => (
-          <CarouselItem 
-            key={index} 
-            className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
-          >
+          <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <AchievementCard 
                 title={project.title} 
                 Icon={project.icon} 
+                imageUrl={project.imageUrl} 
               />
             </div>
           </CarouselItem>
