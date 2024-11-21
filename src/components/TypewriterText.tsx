@@ -30,14 +30,14 @@ const TypewriterText = ({ text, className = "", delay = 0 }: TypewriterTextProps
   }, [controls, delay]);
 
   return (
-    <div className={`flex flex-wrap justify-center gap-1 ${className}`}>
+    <div className={`inline-flex flex-wrap items-center justify-center ${className}`}>
       {text.split("").map((char, i) => (
         <motion.span
           key={i}
           custom={i}
           animate={controls}
           initial={{ width: 0, opacity: 0 }}
-          className="inline-block overflow-hidden whitespace-pre"
+          className="inline-block whitespace-pre"
         >
           {char}
         </motion.span>
