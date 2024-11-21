@@ -59,6 +59,12 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
           {char}
         </motion.span>
       ))}
+      {typewriter && (
+        <span className="inline-block w-[2px] h-[1em] bg-white animate-[blink_1s_infinite]" style={{
+          animation: 'blink 1s infinite',
+        }}>
+        </span>
+      )}
     </span>
   );
 };
