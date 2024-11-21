@@ -98,8 +98,9 @@ const Team = () => {
                     
                     {/* スマホ時のコンテンツ配置 */}
                     <div className={cn(
-                      "relative h-full flex flex-col justify-center px-6",
-                      "md:hidden" // PC時は非表示
+                      "relative h-full flex flex-col justify-end px-6 pb-4", // justify-endで下寄せに
+                      "md:hidden", // PC時は非表示
+                      index % 2 === 0 ? "items-start" : "items-end" // 左右で文字の配置を変更
                     )}>
                       <h3 className="text-2xl font-bold mb-1 text-white">
                         {member.name}
