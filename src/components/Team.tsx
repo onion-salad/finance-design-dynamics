@@ -63,27 +63,60 @@ const Team = () => {
               viewport={{ once: true }}
               className={cn(
                 "w-full md:w-full",
-                // スマホ表示時の左右配置
                 "flex",
                 index % 2 === 0 ? "justify-start" : "justify-end"
               )}
             >
               <Card 
                 className={cn(
-                  "group overflow-hidden hover:scale-105 transition-all duration-300",
+                  "group overflow-hidden transition-all duration-300",
                   "bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl border-accent/10",
-                  "w-[90%] md:w-full" // スマホ時は90%幅、PC時は100%幅
+                  "w-[90%] md:w-full", // スマホ時は90%幅、PC時は100%幅
+                  "md:hover:scale-105" // スケールアップはPCのみ
                 )}
               >
                 <CardContent className="p-0">
-                  <div className="aspect-square relative w-full bg-gradient-to-br from-primary/5 to-accent/5 overflow-hidden">
-                    <User className="w-full h-full p-8 text-gray-300 group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <div className="p-4 text-center bg-white">
-                    <h3 className="text-lg font-bold mb-1 text-primary group-hover:text-accent transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-gray-600">{member.position}</p>
+                  <div className={cn(
+                    "relative w-full overflow-hidden",
+                    "md:aspect-square", // PC時は正方形
+                    "h-32 md:h-auto", // スマホ時は固定高さ
+                  )}>
+                    {/* 背景のプレースホルダー画像 */}
+                    <div className={cn(
+                      "absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5",
+                      "md:block", // PC時のみ表示
+                    )}>
+                      <User className="w-full h-full p-8 text-gray-300 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    
+                    {/* スマホ時の暗い背景オーバーレイ */}
+                    <div className={cn(
+                      "absolute inset-0",
+                      "md:hidden", // PC時は非表示
+                      "bg-gradient-to-r from-primary/90 to-primary/80" // 暗いグラデーション
+                    )} />
+                    
+                    {/* スマホ時のコンテンツ配置 */}
+                    <div className={cn(
+                      "relative h-full flex flex-col justify-center px-6",
+                      "md:hidden" // PC時は非表示
+                    )}>
+                      <h3 className="text-2xl font-bold mb-1 text-white">
+                        {member.name}
+                      </h3>
+                      <p className="text-white/80">{member.position}</p>
+                    </div>
+                    
+                    {/* PC時の情報表示部分 */}
+                    <div className={cn(
+                      "p-4 text-center bg-white",
+                      "hidden md:block" // スマホ時は非表示
+                    )}>
+                      <h3 className="text-lg font-bold mb-1 text-primary group-hover:text-accent transition-colors">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-gray-600">{member.position}</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
