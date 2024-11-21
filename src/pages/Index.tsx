@@ -4,6 +4,7 @@ import Team from "@/components/Team";
 import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const Index = () => {
   return (
@@ -106,7 +107,6 @@ const Index = () => {
                     className={cn(
                       "bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all",
                       item.className,
-                      // スマホ表示時の左右配置
                       index % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto",
                       "w-full sm:w-[90%]"
                     )}
