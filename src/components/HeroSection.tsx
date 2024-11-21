@@ -26,6 +26,7 @@ const HeroSection = () => {
             width="1920"
             height="1080"
             fetchPriority="high"
+            decoding="async"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
