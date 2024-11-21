@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface TypewriterTextProps {
   text: string;
@@ -10,21 +10,26 @@ interface TypewriterTextProps {
 
 const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }: TypewriterTextProps) => {
   const controls = useAnimation();
-  const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     const animate = async () => {
       if (typewriter) {
-        // 文字を1つずつ表示
-        let currentText = "";
+        // 全ての文字を一旦非表示に
+        await controls.start({
+          opacity: 0,
+          transition: { duration: 0 }
+        });
+        
+        // 1文字ずつフェードイン
         for (let i = 0; i < text.length; i++) {
-          currentText += text[i];
-          setDisplayText(currentText);
-          await new Promise(resolve => setTimeout(resolve, 150)); // 各文字の表示間隔
+          await controls.start(index => ({
+            opacity: index <= i ? 1 : 0,
+            transition: {
+              duration: 0.15,
+              delay: index === i ? 0.1 : 0
+            }
+          }));
         }
-        // アニメーション完了後にカーソルを非表示
-        setShowCursor(false);
       } else {
         await controls.start({
           opacity: 1,
@@ -39,16 +44,7 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
     };
 
     animate();
-  }, [controls, delay, text, typewriter]);
-
-  if (typewriter) {
-    return (
-      <span className={`inline-flex flex-nowrap whitespace-nowrap ${className}`}>
-        {displayText}
-        {showCursor && <span className="animate-blink">|</span>}
-      </span>
-    );
-  }
+  }, [controls, delay, text.length, typewriter]);
 
   return (
     <span className={`inline-flex flex-nowrap whitespace-nowrap ${className}`}>
@@ -57,7 +53,7 @@ const TypewriterText = ({ text, className = "", delay = 0, typewriter = false }:
           key={i}
           custom={i}
           animate={controls}
-          initial={{ opacity: 0, y: 20 }}
+          initial={typewriter ? { opacity: 0 } : { opacity: 0, y: 20 }}
           style={{ display: 'inline-block', whiteSpace: 'pre' }}
         >
           {char}
