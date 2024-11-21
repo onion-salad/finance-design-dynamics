@@ -13,7 +13,6 @@ interface AchievementCarouselProps {
   projects: {
     title: string;
     icon: LucideIcon;
-    imageUrl: string;
   }[];
 }
 
@@ -67,7 +66,6 @@ const AchievementCarousel = ({ projects }: AchievementCarouselProps) => {
               <AchievementCard 
                 title={project.title} 
                 Icon={project.icon} 
-                imageUrl={project.imageUrl} 
               />
             </div>
           </CarouselItem>
