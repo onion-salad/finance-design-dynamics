@@ -19,7 +19,7 @@ const Achievement = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-secondary">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">実績一覧</h2>
         
@@ -27,7 +27,7 @@ const Achievement = () => {
           <h3 className="text-xl font-bold mb-6 text-primary">不動産・建築</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {realEstateProjects.map((project, index) => (
-              <Card key={index} className="hover:bg-secondary/70 transition-colors">
+              <Card key={index} className="hover:bg-accent/10 transition-colors bg-secondary/50 backdrop-blur-sm border-accent/20">
                 <CardContent className="flex items-center gap-4 p-6">
                   {project.icon}
                   <span className="text-lg">{project.title}</span>
@@ -41,7 +41,7 @@ const Achievement = () => {
           <h3 className="text-xl font-bold mb-6 text-primary">金融・アドバイザリー</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {financeProjects.map((project, index) => (
-              <Card key={index} className="hover:bg-secondary/70 transition-colors">
+              <Card key={index} className="hover:bg-accent/10 transition-colors bg-secondary/50 backdrop-blur-sm border-accent/20">
                 <CardContent className="flex items-center gap-4 p-6">
                   {project.icon}
                   <span className="text-lg">{project.title}</span>
