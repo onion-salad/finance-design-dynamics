@@ -1,5 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, DollarSign } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Achievement = () => {
   const realEstateProjects = [
@@ -19,36 +26,60 @@ const Achievement = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-secondary">
+    <section className="py-20 px-4 bg-gradient-to-br from-secondary to-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">実績一覧</h2>
         
         <div className="mb-12">
           <h3 className="text-xl font-bold mb-6 text-primary">不動産・建築</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {realEstateProjects.map((project, index) => (
-              <Card key={index} className="hover:bg-accent/10 transition-colors bg-secondary/50 backdrop-blur-sm border-accent/20">
-                <CardContent className="flex items-center gap-4 p-6">
-                  {project.icon}
-                  <span className="text-lg">{project.title}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {realEstateProjects.map((project, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="hover:scale-105 transition-all duration-300 bg-white/50 backdrop-blur-sm border-accent/20 shadow-lg hover:shadow-xl">
+                    <CardContent className="flex items-center gap-4 p-6">
+                      <div className="p-3 bg-primary/5 rounded-full">{project.icon}</div>
+                      <span className="text-lg font-medium">{project.title}</span>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         <div>
           <h3 className="text-xl font-bold mb-6 text-primary">金融・アドバイザリー</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {financeProjects.map((project, index) => (
-              <Card key={index} className="hover:bg-accent/10 transition-colors bg-secondary/50 backdrop-blur-sm border-accent/20">
-                <CardContent className="flex items-center gap-4 p-6">
-                  {project.icon}
-                  <span className="text-lg">{project.title}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {financeProjects.map((project, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="hover:scale-105 transition-all duration-300 bg-white/50 backdrop-blur-sm border-accent/20 shadow-lg hover:shadow-xl">
+                    <CardContent className="flex items-center gap-4 p-6">
+                      <div className="p-3 bg-primary/5 rounded-full">{project.icon}</div>
+                      <span className="text-lg font-medium">{project.title}</span>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>

@@ -36,18 +36,23 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-secondary">
+    <section className="py-20 px-4 bg-gradient-to-br from-secondary via-white to-secondary">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center">メンバー</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {members.map((member, index) => (
-            <Card key={index} className="overflow-hidden hover:scale-105 transition-transform bg-white border border-gray-200">
+            <Card 
+              key={index} 
+              className="group overflow-hidden hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl border-accent/10"
+            >
               <CardContent className="p-0">
-                <div className="aspect-square relative w-full max-w-[200px] mx-auto">
-                  <User className="w-full h-full p-8 text-gray-300" />
+                <div className="aspect-square relative w-full bg-gradient-to-br from-primary/5 to-accent/5 overflow-hidden">
+                  <User className="w-full h-full p-8 text-gray-300 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-lg font-bold mb-1 text-primary">{member.name}</h3>
+                <div className="p-4 text-center bg-white">
+                  <h3 className="text-lg font-bold mb-1 text-primary group-hover:text-accent transition-colors">
+                    {member.name}
+                  </h3>
                   <p className="text-sm text-gray-600">{member.position}</p>
                 </div>
               </CardContent>
