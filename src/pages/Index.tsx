@@ -14,7 +14,7 @@ const Index = () => {
       
       <main className="pt-16">
         {/* ヒーローセクション */}
-        <section className="relative h-screen flex items-center justify-center text-center px-4">
+        <section className="relative h-[calc(100vh-64px)] flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 -z-10">
             <img
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
@@ -37,12 +37,12 @@ const Index = () => {
             />
             <TypewriterText
               text="人と向き合い、その先へ。"
-              className="text-2xl md:text-3xl mb-2 font-light"
+              className="text-xl md:text-2xl mb-2 font-light"
               delay={2}
             />
             <TypewriterText
               text="Designing the future finance."
-              className="text-xl md:text-2xl text-gray-200 font-light"
+              className="text-lg md:text-xl text-gray-200 font-light"
               delay={2}
             />
           </motion.div>
