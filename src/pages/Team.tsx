@@ -37,7 +37,7 @@ const TeamPage = () => {
                 <GoogleMap
                   mapContainerStyle={mapContainerStyle}
                   center={center}
-                  zoom={17}
+                  zoom={13}
                 >
                   <Marker position={center} />
                 </GoogleMap>

@@ -7,8 +7,19 @@ import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const Index = () => {
+  const mapContainerStyle = {
+    width: "100%",
+    height: "300px",
+  };
+
+  const center = {
+    lat: 35.68462371826172,
+    lng: 139.76121520996094
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -109,55 +120,69 @@ const Index = () => {
         <Team />
 
         <footer className="bg-primary text-white py-16 px-4">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Concentric株式会社</h3>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  <p>〒100-0005 東京都千代田区丸の内1-1-1</p>
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-12">
+              <LoadScript googleMapsApiKey="AIzaSyCqtgd2QSzOYRXsKUtO4glUxScnNy-inQY">
+                <GoogleMap
+                  mapContainerStyle={mapContainerStyle}
+                  center={center}
+                  zoom={13}
+                >
+                  <Marker position={center} />
+                </GoogleMap>
+              </LoadScript>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div>
+                <h3 className="text-xl font-bold mb-4">Concentric株式会社</h3>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-5 h-5" />
+                    <p>〒100-0005 東京都千代田区丸の内1-1-1</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-5 h-5" />
+                    <p>03-1234-5678</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-5 h-5" />
+                    <p>info@growth-capital.co.jp</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  <p>03-1234-5678</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  <p>info@growth-capital.co.jp</p>
-                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-4">サービス</h3>
+                <ul className="space-y-2">
+                  <li>M&A・業務提携</li>
+                  <li>ファイナンス</li>
+                  <li>アドバイザリー</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-4">企業情報</h3>
+                <ul className="space-y-2">
+                  <li>会社概要</li>
+                  <li>チーム</li>
+                  <li>ニュース</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
+                <ul className="space-y-2">
+                  <li>お問い合わせフォーム</li>
+                  <li>採用情報</li>
+                  <li>プライバシーポリシー</li>
+                </ul>
               </div>
             </div>
             
-            <div>
-              <h3 className="text-xl font-bold mb-4">サービス</h3>
-              <ul className="space-y-2">
-                <li>M&A・業務提携</li>
-                <li>ファイナンス</li>
-                <li>アドバイザリー</li>
-              </ul>
+            <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/20 text-center">
+              <p>&copy; 2024 Concentric株式会社. All rights reserved.</p>
             </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-4">企業情報</h3>
-              <ul className="space-y-2">
-                <li>会社概要</li>
-                <li>チーム</li>
-                <li>ニュース</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
-              <ul className="space-y-2">
-                <li>お問い合わせフォーム</li>
-                <li>採用情報</li>
-                <li>プライバシーポリシー</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/20 text-center">
-            <p>&copy; 2024 Concentric株式会社. All rights reserved.</p>
           </div>
         </footer>
       </main>
