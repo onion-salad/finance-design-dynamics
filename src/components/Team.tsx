@@ -112,11 +112,9 @@ const Team = () => {
                     {/* PC時の情報表示部分 */}
                     <div className={cn(
                       "absolute bottom-0 left-0 right-0 p-4 text-center bg-white/90 backdrop-blur-sm",
-                      "hidden md:block",
-                      "transform transition-transform duration-300 group-hover:translate-y-0",
-                      "translate-y-full group-hover:translate-y-0"
+                      "hidden md:block"
                     )}>
-                      <h3 className="text-lg font-bold mb-1 text-primary group-hover:text-accent transition-colors">
+                      <h3 className="text-lg font-bold mb-1 text-primary transition-colors">
                         {member.name}
                       </h3>
                       <p className="text-sm text-gray-600">{member.position}</p>
