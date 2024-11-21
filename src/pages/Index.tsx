@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Achievement from "@/components/Achievement";
 import Team from "@/components/Team";
-import { ChartBar, Building2, Users } from "lucide-react";
+import { ChartBar, Building2, Users, MapPin, Phone, Mail } from "lucide-react";
 
 const Index = () => {
   return (
@@ -9,7 +9,6 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
-        {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center text-center px-4">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -21,8 +20,7 @@ const Index = () => {
             </p>
           </div>
         </section>
-
-        {/* Vision Section */}
+        
         <section className="py-20 px-4 bg-black/30">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-8">
@@ -32,8 +30,7 @@ const Index = () => {
             </h2>
           </div>
         </section>
-
-        {/* Services Section */}
+        
         <section className="py-20 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -62,11 +59,63 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Achievement Section */}
         <Achievement />
 
-        {/* Team Section */}
         <Team />
+
+        {/* Footer Section */}
+        <footer className="bg-primary text-white py-16 px-4">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Growth Capital</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  <p>〒100-0005 東京都千代田区丸の内1-1-1</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  <p>03-1234-5678</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  <p>info@growth-capital.co.jp</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold mb-4">サービス</h3>
+              <ul className="space-y-2">
+                <li>M&A・業務提携</li>
+                <li>ファイナンス</li>
+                <li>アドバイザリー</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold mb-4">企業情報</h3>
+              <ul className="space-y-2">
+                <li>会社概要</li>
+                <li>チーム</li>
+                <li>ニュース</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
+              <ul className="space-y-2">
+                <li>お問い合わせフォーム</li>
+                <li>採用情報</li>
+                <li>プライバシーポリシー</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/20 text-center">
+            <p>&copy; 2024 Growth Capital. All rights reserved.</p>
+          </div>
+        </footer>
       </main>
     </div>
   );
