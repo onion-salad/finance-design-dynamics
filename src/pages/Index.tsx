@@ -3,6 +3,7 @@ import Achievement from "@/components/Achievement";
 import Team from "@/components/Team";
 import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Index = () => {
   return (
@@ -10,96 +11,151 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
+        {/* ヒーローセクション */}
         <section className="relative h-screen flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 -z-10">
             <img
-              src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
               alt="Background"
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
           </div>
-          <div className="animate-fade-in text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white max-w-4xl mx-auto"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               金融に情熱を
             </h1>
-            <p className="text-xl md:text-2xl mb-4">人と向き合い、その先へ。</p>
-            <p className="text-lg md:text-xl text-gray-200">
+            <p className="text-2xl md:text-3xl mb-6 font-medium">人と向き合い、その先へ。</p>
+            <p className="text-xl md:text-2xl text-gray-200 font-light">
               Designing the future finance.
             </p>
-          </div>
+          </motion.div>
         </section>
         
-        <section className="py-20">
+        {/* ビジョンセクション */}
+        <section className="py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                  金融という無形の価値に
-                  <br />
-                  デザインという存在の意味を！
-                </h2>
-                <p className="text-lg text-gray-600">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                <div className="space-y-4">
+                  <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+                    金融という無形の価値に
+                    <br />
+                    デザインという存在の意味を
+                  </h2>
+                  <div className="w-20 h-1 bg-primary"></div>
+                </div>
+                <p className="text-xl text-gray-600 leading-relaxed">
                   私たちは、金融の世界に革新的なデザインと新しい価値を創造します。
                   従来の枠組みを超えて、より多くの人々にアクセシブルで意味のある金融サービスを提供することを目指しています。
                 </p>
                 <div className="flex items-center gap-4">
-                  <Button className="group">
+                  <Button size="lg" className="group text-lg">
                     詳しく見る
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="bg-primary/5 p-6 rounded-lg">
-                    <h3 className="text-xl font-bold mb-2">Innovation</h3>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="grid grid-cols-2 gap-6"
+              >
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="space-y-6"
+                >
+                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Innovation</h3>
                     <p className="text-gray-600">革新的な金融ソリューション</p>
                   </div>
-                  <div className="bg-primary/5 p-6 rounded-lg translate-y-8">
-                    <h3 className="text-xl font-bold mb-2">Design</h3>
+                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-8">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Design</h3>
                     <p className="text-gray-600">洗練されたデザイン思考</p>
                   </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-primary/5 p-6 rounded-lg translate-y-4">
-                    <h3 className="text-xl font-bold mb-2">Trust</h3>
+                </motion.div>
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="space-y-6"
+                >
+                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-4">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Trust</h3>
                     <p className="text-gray-600">確かな信頼関係の構築</p>
                   </div>
-                  <div className="bg-primary/5 p-6 rounded-lg translate-y-12">
-                    <h3 className="text-xl font-bold mb-2">Growth</h3>
+                  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow translate-y-12">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">Growth</h3>
                     <p className="text-gray-600">持続的な成長の実現</p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
+        {/* サービスセクション */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold mb-6">Our Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                豊富な経験と専門知識を活かし、お客様のニーズに合わせた最適なソリューションを提供します。
+              </p>
+            </motion.div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-secondary/50 rounded-lg hover:bg-secondary/70 transition-colors">
-                <ChartBar className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-2">M&A・業務提携</h3>
-                <p className="text-gray-400">
-                  戦略的なM&Aと業務提携で、企業の成長をサポートします。
-                </p>
-              </div>
-              <div className="p-6 bg-secondary/50 rounded-lg hover:bg-secondary/70 transition-colors">
-                <Building2 className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-2">ファイナンス</h3>
-                <p className="text-gray-400">
-                  最適な資金調達方法を提案し、企業の財務戦略を支援します。
-                </p>
-              </div>
-              <div className="p-6 bg-secondary/50 rounded-lg hover:bg-secondary/70 transition-colors">
-                <Users className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-2">アドバイザリー</h3>
-                <p className="text-gray-400">
-                  専門知識と経験を活かし、的確なアドバイスを提供します。
-                </p>
-              </div>
+              {[
+                {
+                  icon: ChartBar,
+                  title: "M&A・業務提携",
+                  description: "戦略的なM&Aと業務提携で、企業の成長をサポートします。",
+                },
+                {
+                  icon: Building2,
+                  title: "ファイナンス",
+                  description: "最適な資金調達方法を提案し、企業の財務戦略を支援します。",
+                },
+                {
+                  icon: Users,
+                  title: "アドバイザリー",
+                  description: "専門知識と経験を活かし、的確なアドバイスを提供します。",
+                },
+              ].map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
+                >
+                  <service.icon className="w-16 h-16 text-primary mb-6" />
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-600 text-lg">{service.description}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
