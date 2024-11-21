@@ -14,7 +14,7 @@ const Index = () => {
       
       <main className="pt-16">
         {/* ヒーローセクション */}
-        <section className="relative h-[calc(100vh-64px)] flex items-center justify-center text-center px-4">
+        <section className="relative h-[calc(100vh-64px)] flex items-center justify-center translate-y-[-10%] text-center px-4">
           <div className="absolute inset-0 -z-10">
             <img
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
