@@ -5,6 +5,7 @@ import { ChartBar, Building2, Users, MapPin, Phone, Mail, ArrowRight } from "luc
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import TypewriterText from "@/components/TypewriterText";
 
 const Index = () => {
   return (
@@ -28,13 +29,21 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-white max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              金融に情熱を
-            </h1>
-            <p className="text-2xl md:text-3xl mb-6 font-medium">人と向き合い、その先へ。</p>
-            <p className="text-xl md:text-2xl text-gray-200 font-light">
-              Designing the future finance.
-            </p>
+            <TypewriterText
+              text="金融に情熱を"
+              className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+              delay={0.5}
+            />
+            <TypewriterText
+              text="人と向き合い、その先へ。"
+              className="text-2xl md:text-3xl mb-6 font-medium"
+              delay={2}
+            />
+            <TypewriterText
+              text="Designing the future finance."
+              className="text-xl md:text-2xl text-gray-200 font-light"
+              delay={3}
+            />
           </motion.div>
         </section>
 
