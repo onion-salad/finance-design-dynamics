@@ -13,21 +13,11 @@ const HeroSection = () => {
         className="absolute inset-0 -z-10"
         style={{ y }}
       >
-        <picture>
-          <source
-            srcSet="/hero-image.webp"
-            type="image/webp"
-          />
-          <img
-            src="/hero-image.jpg"
-            alt="Concentric株式会社のオフィスビル"
-            className="w-full h-full object-cover"
-            loading="eager"
-            width="1920"
-            height="1080"
-            fetchPriority="high"
-          />
-        </picture>
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+          alt="Concentric株式会社のオフィスビル"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
       </motion.div>
       
