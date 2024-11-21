@@ -27,6 +27,7 @@ const HeroSection = () => {
             height="1080"
             fetchPriority="high"
             decoding="async"
+            style={{ contentVisibility: 'auto' }}
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />

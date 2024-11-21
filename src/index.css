@@ -30,15 +30,18 @@
   
   html {
     scroll-behavior: smooth;
+    font-display: swap;
   }
   
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
     width: 100%;
     position: relative;
+    overflow-x: hidden;
   }
 
   img {
     @apply max-w-full h-auto;
+    content-visibility: auto;
   }
 }
