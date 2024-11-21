@@ -4,7 +4,6 @@ import TypewriterText from "./TypewriterText";
 const HeroSection = () => {
   const { scrollY } = useScroll();
   
-  // パララックス効果のための変換
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   
@@ -16,7 +15,7 @@ const HeroSection = () => {
       >
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
-          alt="Background"
+          alt="Concentric株式会社のオフィスビル"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
@@ -26,6 +25,7 @@ const HeroSection = () => {
         style={{ opacity }}
         className="text-white max-w-4xl mx-auto space-y-2"
       >
+        <h1 className="sr-only">Concentric株式会社 - 革新的な金融ソリューション</h1>
         <TypewriterText
           text="金融に情熱を"
           className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
