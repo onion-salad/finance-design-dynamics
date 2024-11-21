@@ -1,5 +1,7 @@
-import { ChartBar, Building2, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Achievement from "@/components/Achievement";
+import Team from "@/components/Team";
+import { ChartBar, Building2, Users } from "lucide-react";
 
 const Index = () => {
   return (
@@ -59,6 +61,12 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Achievement Section */}
+        <Achievement />
+
+        {/* Team Section */}
+        <Team />
       </main>
     </div>
   );
