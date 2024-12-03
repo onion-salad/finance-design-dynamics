@@ -103,14 +103,14 @@ const FinanceArrangementSection = () => {
               viewport={{ once: true }}
             >
               <Card className="p-8 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-start gap-6">
-                  <div className="flex flex-col items-center gap-4 flex-shrink-0">
+                <div className="flex flex-col md:flex-row items-start gap-6">
+                  <div className="flex flex-col items-center gap-4 flex-shrink-0 w-full md:w-auto">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                       <solution.icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="text-2xl font-bold text-center">{solution.title}</h3>
                   </div>
-                  <div className="space-y-4 flex-grow">
+                  <div className="space-y-4 flex-grow w-full">
                     {solution.description && (
                       <p className="text-gray-600">{solution.description}</p>
                     )}
