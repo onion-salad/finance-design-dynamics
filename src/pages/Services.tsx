@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { motion } from "framer-motion";
 import { ChevronRight, Briefcase, LineChart, Users, Shuffle, Search, Scale, Calculator } from "lucide-react";
-import ServiceCard from "@/components/ServiceCard";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
