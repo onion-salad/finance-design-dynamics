@@ -103,28 +103,32 @@ const MAAdvisorySection = () => {
           <br />- アドバイザリーサービス一覧 -
         </h2>
         
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-lg shadow">
           <Table>
-            <TableHeader>
+            <TableHeader className="sticky top-0 bg-gray-50 z-10">
               <TableRow>
-                <TableHead className="w-1/4 bg-gray-50 text-primary font-bold">業務名</TableHead>
-                <TableHead className="w-1/2 bg-gray-50 text-primary font-bold">業務内容</TableHead>
-                <TableHead className="w-1/4 bg-gray-50 text-primary font-bold">アウトプット</TableHead>
+                <TableHead className="w-full sm:w-1/4 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">業務名</TableHead>
+                <TableHead className="w-full sm:w-1/2 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">業務内容</TableHead>
+                <TableHead className="w-full sm:w-1/4 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">アウトプット</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {services.map((service, index) => (
-                <TableRow key={index}>
-                  <TableCell className="align-top font-medium border">{service.title}</TableCell>
-                  <TableCell className="border whitespace-pre-line">
-                    {service.content.map((content, i) => (
-                      <p key={i} className="mb-2">{content}</p>
-                    ))}
+                <TableRow key={index} className="border-b hover:bg-gray-50/50 transition-colors">
+                  <TableCell className="align-top font-medium border text-sm sm:text-base p-2 sm:p-4">
+                    {service.title}
                   </TableCell>
-                  <TableCell className="border">
+                  <TableCell className="border text-sm sm:text-base p-2 sm:p-4">
+                    <div className="space-y-2">
+                      {service.content.map((content, i) => (
+                        <p key={i} className="leading-relaxed">{content}</p>
+                      ))}
+                    </div>
+                  </TableCell>
+                  <TableCell className="border text-sm sm:text-base p-2 sm:p-4">
                     <ul className="list-disc list-inside space-y-2">
                       {service.outputs.map((output, i) => (
-                        <li key={i} className="whitespace-pre-line">{output}</li>
+                        <li key={i} className="leading-relaxed whitespace-pre-line">{output}</li>
                       ))}
                     </ul>
                   </TableCell>
