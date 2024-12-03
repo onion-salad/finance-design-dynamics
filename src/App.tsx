@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import Portfolio from "./pages/Portfolio";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
@@ -29,7 +28,6 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/team" element={<Team />} />

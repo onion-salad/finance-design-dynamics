@@ -8,7 +8,6 @@ const Navigation = () => {
   const menuItems = [
     { title: "ホーム", path: "/" },
     { title: "サービス", path: "/services" },
-    { title: "投資先", path: "/portfolio" },
     { title: "チーム", path: "/team" },
     { title: "ニュース", path: "/news" },
     { title: "お問い合わせ", path: "/contact" },

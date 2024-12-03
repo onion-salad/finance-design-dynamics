@@ -1,7 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import Achievement from "@/components/Achievement";
-import TeamGrid from "@/components/TeamGrid";
 import Navigation from "@/components/Navigation";
 
 const Index = () => {
@@ -11,7 +10,6 @@ const Index = () => {
       <HeroSection />
       <ServicesSection />
       <Achievement />
-      <TeamGrid />
     </div>
   );
 };
