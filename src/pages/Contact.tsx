@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { MapPin, Phone, Mail } from "lucide-react";
-import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -20,23 +20,19 @@ const Contact = () => {
       return;
     }
 
+    const formData = {
+      name: form.current.user_name.value,
+      email: form.current.user_email.value,
+      company: form.current.user_company.value,
+      message: form.current.message.value,
+    };
+
     try {
-      console.log('フォーム送信開始...');
-      console.log('フォームデータ:', {
-        name: form.current.user_name?.value,
-        email: form.current.user_email?.value,
-        company: form.current.user_company?.value,
-        message: form.current.message?.value
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: formData
       });
 
-      const result = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
-        form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
-      );
-
-      console.log('EmailJS送信結果:', result);
+      if (error) throw error;
 
       toast({
         title: "送信完了",
@@ -47,7 +43,7 @@ const Contact = () => {
         form.current.reset();
       }
     } catch (error) {
-      console.error('EmailJS送信エラー:', error);
+      console.error('メール送信エラー:', error);
       toast({
         title: "エラー",
         description: "送信に失敗しました。時間をおいて再度お試しください。",
