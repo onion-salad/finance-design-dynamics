@@ -15,15 +15,28 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!form.current) return;
+    if (!form.current) {
+      console.error('フォームの参照が見つかりません');
+      return;
+    }
 
     try {
-      await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // ここにEmailJSのService IDを入力
-        'YOUR_TEMPLATE_ID', // ここにEmailJSのTemplate IDを入力
+      console.log('フォーム送信開始...');
+      console.log('フォームデータ:', {
+        name: form.current.user_name?.value,
+        email: form.current.user_email?.value,
+        company: form.current.user_company?.value,
+        message: form.current.message?.value
+      });
+
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
         form.current,
-        'YOUR_PUBLIC_KEY' // ここにEmailJSのPublic Keyを入力
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
       );
+
+      console.log('EmailJS送信結果:', result);
 
       toast({
         title: "送信完了",
@@ -34,6 +47,7 @@ const Contact = () => {
         form.current.reset();
       }
     } catch (error) {
+      console.error('EmailJS送信エラー:', error);
       toast({
         title: "エラー",
         description: "送信に失敗しました。時間をおいて再度お試しください。",
