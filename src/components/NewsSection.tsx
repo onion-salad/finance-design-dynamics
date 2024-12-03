@@ -35,7 +35,7 @@ const NewsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">最新のニュース</h2>
+          <h2 className="text-4xl font-bold mb-4 font-futura">最新のニュース</h2>
           <p className="text-muted-foreground">
             Concentricの最新情報をお届けします
           </p>
@@ -59,7 +59,7 @@ const NewsSection = () => {
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
                   {item.category}
                 </span>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-2 font-futura">{item.title}</h3>
                 <p className="text-muted-foreground mb-4">{item.excerpt}</p>
                 <Button variant="ghost" className="group">
                   続きを読む

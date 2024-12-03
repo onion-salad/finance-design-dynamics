@@ -54,8 +54,8 @@ const ServicesSection = () => {
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-4xl font-bold mb-4">{item.title}</h2>
-                  <p className="text-xl font-medium text-primary mb-4">{item.subtitle}</p>
+                  <h2 className="text-4xl font-bold mb-4 font-futura">{item.title}</h2>
+                  <p className="text-xl font-medium text-primary mb-4 font-futura">{item.subtitle}</p>
                   {item.description && (
                     <p className="text-muted-foreground leading-relaxed">
                       {item.description}

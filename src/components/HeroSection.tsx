@@ -28,18 +28,18 @@ const HeroSection = () => {
         <h1 className="sr-only">Concentric株式会社 - 革新的な金融ソリューション</h1>
         <TypewriterText
           text="金融に情熱を"
-          className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
+          className="text-5xl md:text-7xl font-bold mb-4 leading-tight font-futura"
           delay={0.5}
           typewriter={true}
         />
         <TypewriterText
           text="人と向き合い、その先へ。"
-          className="text-xl md:text-2xl mb-2 font-light"
+          className="text-xl md:text-2xl mb-2 font-light font-futura"
           delay={2}
         />
         <TypewriterText
           text="Designing the future finance."
-          className="text-lg md:text-xl text-gray-200 font-light"
+          className="text-lg md:text-xl text-gray-200 font-light font-futura"
           delay={2}
         />
       </motion.div>

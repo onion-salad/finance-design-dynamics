@@ -72,7 +72,7 @@ const Team = () => {
                           <p className="text-sm font-medium text-primary/80 mb-2">
                             {member.position}
                           </p>
-                          <h3 className="text-3xl lg:text-4xl font-bold text-primary">
+                          <h3 className="text-3xl lg:text-4xl font-bold text-primary font-futura">
                             {member.name}
                           </h3>
                         </div>

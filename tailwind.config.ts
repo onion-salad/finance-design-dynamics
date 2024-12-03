@@ -55,6 +55,7 @@ export default {
       },
       fontFamily: {
         sans: ["Futura", "Inter", "Noto Sans JP", "sans-serif"],
+        futura: ["Futura", "sans-serif"],
       },
       keyframes: {
         "slide-in": {
