@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Wallet, BarChart4, FileStack, Shuffle, ChevronRight } from "lucide-react";
+import { Building2, Wallet, BarChart4, FileStack, Shuffle, ChevronRight, DollarSign, CreditCard, ChartBar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const financeServices = [
@@ -18,7 +18,7 @@ const financeServices = [
 
 const solutions = [
   {
-    icon: BarChart4,
+    icon: ChartBar,
     title: "エクイティ調達",
     categories: [
       {
@@ -49,12 +49,12 @@ const solutions = [
     ]
   },
   {
-    icon: FileStack,
+    icon: CreditCard,
     title: "デット調達",
     description: "ブリッジローン、不動産担保ローン、ABL(動産担保ローン)等、特殊なストラクチャーの構築が必要なシーンにおいて、各種金融機関と連携しながら、御社側のアドバイザーとして、ファイナンスの最後までご支援させていただきます。"
   },
   {
-    icon: Shuffle,
+    icon: DollarSign,
     title: "ファンド組成アレンジメント",
     description: "金融ニ種免許業者および適格機関投資家との連携により、ファンド組成のサポートをさせていただきます。事業ファンド、投資ファンド等様々なニーズにお応えいたします。投資実行の際には、投資戦略を策定し、ソーシング、デューデリジェンス、キャッシュフロー分析、SPC設立、契約書の作成とクロージングに至るまでのすべての業務をご支援いたします。"
   }
@@ -104,11 +104,13 @@ const FinanceArrangementSection = () => {
             >
               <Card className="p-8 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <solution.icon className="w-8 h-8 text-primary" />
+                  <div className="flex flex-col items-center gap-4 flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <solution.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-center">{solution.title}</h3>
                   </div>
                   <div className="space-y-4 flex-grow">
-                    <h3 className="text-2xl font-bold">{solution.title}</h3>
                     {solution.description && (
                       <p className="text-gray-600">{solution.description}</p>
                     )}
