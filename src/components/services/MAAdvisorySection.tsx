@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
 
 const services = [
   {
@@ -103,39 +103,79 @@ const MAAdvisorySection = () => {
           <br />- アドバイザリーサービス一覧 -
         </h2>
         
-        <div className="overflow-x-auto rounded-lg shadow">
-          <Table>
-            <TableHeader className="sticky top-0 bg-gray-50 z-10">
-              <TableRow>
-                <TableHead className="w-full sm:w-1/4 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">業務名</TableHead>
-                <TableHead className="w-full sm:w-1/2 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">業務内容</TableHead>
-                <TableHead className="w-full sm:w-1/4 bg-gray-50 text-primary font-bold text-sm sm:text-base p-2 sm:p-4">アウトプット</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+        {/* Desktop View */}
+        <div className="hidden md:block overflow-x-auto rounded-lg shadow">
+          <table className="w-full">
+            <thead className="sticky top-0 bg-gray-50 z-10">
+              <tr>
+                <th className="w-1/4 bg-gray-50 text-primary font-bold text-base p-4 text-left">業務名</th>
+                <th className="w-1/2 bg-gray-50 text-primary font-bold text-base p-4 text-left">業務内容</th>
+                <th className="w-1/4 bg-gray-50 text-primary font-bold text-base p-4 text-left">アウトプット</th>
+              </tr>
+            </thead>
+            <tbody>
               {services.map((service, index) => (
-                <TableRow key={index} className="border-b hover:bg-gray-50/50 transition-colors">
-                  <TableCell className="align-top font-medium border text-sm sm:text-base p-2 sm:p-4">
+                <tr key={index} className="border-b hover:bg-gray-50/50 transition-colors">
+                  <td className="align-top font-medium border text-base p-4">
                     {service.title}
-                  </TableCell>
-                  <TableCell className="border text-sm sm:text-base p-2 sm:p-4">
+                  </td>
+                  <td className="border text-base p-4">
                     <div className="space-y-2">
                       {service.content.map((content, i) => (
                         <p key={i} className="leading-relaxed">{content}</p>
                       ))}
                     </div>
-                  </TableCell>
-                  <TableCell className="border text-sm sm:text-base p-2 sm:p-4">
+                  </td>
+                  <td className="border text-base p-4">
                     <ul className="list-disc list-inside space-y-2">
                       {service.outputs.map((output, i) => (
                         <li key={i} className="leading-relaxed whitespace-pre-line">{output}</li>
                       ))}
                     </ul>
-                  </TableCell>
-                </TableRow>
+                  </td>
+                </tr>
               ))}
-            </TableBody>
-          </Table>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile View */}
+        <div className="md:hidden space-y-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-4 space-y-4">
+                <div className="bg-primary/5 p-3 rounded-lg">
+                  <h3 className="text-lg font-bold text-primary">{service.title}</h3>
+                </div>
+                
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-500 mb-2">業務内容</h4>
+                  <div className="space-y-2 pl-2">
+                    {service.content.map((content, i) => (
+                      <p key={i} className="text-sm leading-relaxed text-gray-700">{content}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-500 mb-2">アウトプット</h4>
+                  <ul className="list-disc list-inside space-y-1 pl-2">
+                    {service.outputs.map((output, i) => (
+                      <li key={i} className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
+                        {output}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
