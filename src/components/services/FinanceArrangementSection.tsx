@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Wallet, ChartBar, CreditCard, DollarSign, ChevronRight } from "lucide-react";
+import { Building2, Wallet, BarChart4, FileStack, Shuffle, ChevronRight, DollarSign, CreditCard, ChartBar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const financeServices = [
@@ -74,16 +74,16 @@ const FinanceArrangementSection = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 h-full hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 border-gray-200">
+              <Card className="p-8 h-full hover:shadow-lg transition-shadow duration-300">
                 <div className="flex flex-col h-full">
-                  <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                     <service.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{service.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                   {service.subtitle && (
-                    <p className="text-lg text-primary/80 mb-4 font-medium">({service.subtitle})</p>
+                    <p className="text-lg text-primary mb-4">({service.subtitle})</p>
                   )}
-                  <p className="text-gray-600 flex-grow leading-relaxed">{service.description}</p>
+                  <p className="text-gray-600 flex-grow">{service.description}</p>
                 </div>
               </Card>
             </motion.div>
@@ -102,29 +102,29 @@ const FinanceArrangementSection = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 border-gray-200">
+              <Card className="p-8 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex flex-col md:flex-row items-start gap-6">
-                  <div className="flex md:flex-col items-center gap-4 flex-shrink-0 w-full md:w-48">
-                    <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10">
+                  <div className="flex flex-col items-center gap-4 flex-shrink-0 w-full md:w-auto">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                       <solution.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{solution.title}</h3>
+                    <h3 className="text-2xl font-bold text-center">{solution.title}</h3>
                   </div>
                   <div className="space-y-4 flex-grow w-full">
                     {solution.description && (
-                      <p className="text-gray-600 leading-relaxed">{solution.description}</p>
+                      <p className="text-gray-600">{solution.description}</p>
                     )}
                     {solution.categories && (
                       <div className="grid md:grid-cols-2 gap-8 mt-8">
                         {solution.categories.map((category, catIndex) => (
-                          <div key={category.name} className="space-y-4 bg-gray-50/50 p-6 rounded-lg border border-gray-100">
-                            <h4 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{category.name}</h4>
-                            <p className="text-primary/80 font-medium">{category.period}</p>
+                          <div key={category.name} className="space-y-4">
+                            <h4 className="text-xl font-semibold">{category.name}</h4>
+                            <p className="text-primary">{category.period}</p>
                             <ul className="space-y-2">
                               {category.items.map((item, itemIndex) => (
                                 <li key={itemIndex} className="flex items-start gap-2 text-gray-600">
-                                  <ChevronRight className="w-5 h-5 text-primary/60 flex-shrink-0 mt-1" />
-                                  <span className="leading-relaxed">{item}</span>
+                                  <ChevronRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                  <span>{item}</span>
                                 </li>
                               ))}
                             </ul>
