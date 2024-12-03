@@ -6,33 +6,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { MapPin, Phone, Mail } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
-import { EmailJSSettings } from "@/components/EmailJSSettings";
+import { useRef } from 'react';
 
 const Contact = () => {
   const { toast } = useToast();
   const form = useRef<HTMLFormElement>(null);
-  const [showSettings, setShowSettings] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!form.current) {
       console.error('フォームの参照が見つかりません');
-      return;
-    }
-
-    const serviceId = localStorage.getItem('emailjs_service_id');
-    const templateId = localStorage.getItem('emailjs_template_id');
-    const publicKey = localStorage.getItem('emailjs_public_key');
-
-    if (!serviceId || !templateId || !publicKey) {
-      toast({
-        title: "設定エラー",
-        description: "EmailJSの設定が必要です。設定ボタンから必要な情報を入力してください。",
-        variant: "destructive",
-      });
-      setShowSettings(true);
       return;
     }
 
@@ -46,10 +30,10 @@ const Contact = () => {
       });
 
       const result = await emailjs.sendForm(
-        serviceId,
-        templateId,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
         form.current,
-        publicKey
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
       );
 
       console.log('EmailJS送信結果:', result);
@@ -90,24 +74,7 @@ const Contact = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               ご質問やご相談がございましたら、お気軽にお問い合わせください。
             </p>
-            <Button
-              onClick={() => setShowSettings(!showSettings)}
-              variant="outline"
-              className="mt-4"
-            >
-              EmailJS設定
-            </Button>
           </motion.div>
-
-          {showSettings && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="max-w-md mx-auto mb-8"
-            >
-              <EmailJSSettings />
-            </motion.div>
-          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <motion.div
