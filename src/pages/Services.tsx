@@ -15,11 +15,17 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4">
           <Tabs defaultValue="ma" className="w-full">
             <div className="text-center mb-12">
-              <TabsList className="inline-flex h-14 items-center text-lg bg-secondary/50 p-1 gap-1">
-                <TabsTrigger value="ma" className="px-8 h-12 data-[state=active]:bg-white">
+              <TabsList className="flex flex-col sm:flex-row w-full sm:w-auto sm:inline-flex h-auto sm:h-14 items-center text-lg bg-secondary/50 p-1 gap-1">
+                <TabsTrigger 
+                  value="ma" 
+                  className="w-full sm:w-auto px-8 h-12 data-[state=active]:bg-white whitespace-normal sm:whitespace-nowrap text-sm sm:text-base"
+                >
                   M&Aアドバイザリー事業
                 </TabsTrigger>
-                <TabsTrigger value="finance" className="px-8 h-12 data-[state=active]:bg-white">
+                <TabsTrigger 
+                  value="finance" 
+                  className="w-full sm:w-auto px-8 h-12 data-[state=active]:bg-white whitespace-normal sm:whitespace-nowrap text-sm sm:text-base"
+                >
                   ファイナンスアレンジメント事業
                 </TabsTrigger>
               </TabsList>
