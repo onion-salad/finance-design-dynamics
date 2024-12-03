@@ -104,7 +104,7 @@ const FinanceArrangementSection = () => {
             >
               <Card className="p-8 hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 border-gray-200">
                 <div className="flex flex-col md:flex-row items-start gap-6">
-                  <div className="flex flex-col items-center gap-4 flex-shrink-0 w-full md:w-auto">
+                  <div className="flex md:flex-col items-center gap-4 flex-shrink-0 w-full md:w-48">
                     <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10">
                       <solution.icon className="w-8 h-8 text-primary" />
                     </div>
