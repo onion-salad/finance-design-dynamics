@@ -21,6 +21,24 @@ const Team = () => {
       position: "執行役員",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
       description: "財務・経営戦略のスペシャリスト。企業価値向上のための戦略立案を得意とする。"
+    },
+    {
+      name: "山田 健一",
+      position: "シニアパートナー",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
+      description: "20年以上にわたる投資銀行での経験を活かし、複雑なM&A案件を多数手掛ける。"
+    },
+    {
+      name: "田中 美咲",
+      position: "マネージングディレクター",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+      description: "クロスボーダーM&Aのエキスパート。アジア地域における豊富なネットワークを持つ。"
+    },
+    {
+      name: "鈴木 大輔",
+      position: "ディレクター",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80",
+      description: "テクノロジー業界に特化したM&Aアドバイザリーを専門とし、数々のテック企業の成長を支援。"
     }
   ];
 
