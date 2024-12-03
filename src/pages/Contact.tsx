@@ -5,16 +5,41 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { MapPin, Phone, Mail } from "lucide-react";
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const Contact = () => {
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "送信完了",
-      description: "お問い合わせを受け付けました。担当者より順次ご連絡させていただきます。",
-    });
+    
+    if (!form.current) return;
+
+    try {
+      await emailjs.sendForm(
+        'YOUR_SERVICE_ID', // ここにEmailJSのService IDを入力
+        'YOUR_TEMPLATE_ID', // ここにEmailJSのTemplate IDを入力
+        form.current,
+        'YOUR_PUBLIC_KEY' // ここにEmailJSのPublic Keyを入力
+      );
+
+      toast({
+        title: "送信完了",
+        description: "お問い合わせを受け付けました。担当者より順次ご連絡させていただきます。",
+      });
+      
+      if (form.current) {
+        form.current.reset();
+      }
+    } catch (error) {
+      toast({
+        title: "エラー",
+        description: "送信に失敗しました。時間をおいて再度お試しください。",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -79,33 +104,33 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block font-medium mb-2">
                     お名前
                   </label>
-                  <Input id="name" required />
+                  <Input id="name" name="user_name" required />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block font-medium mb-2">
                     メールアドレス
                   </label>
-                  <Input id="email" type="email" required />
+                  <Input id="email" name="user_email" type="email" required />
                 </div>
                 
                 <div>
                   <label htmlFor="company" className="block font-medium mb-2">
                     会社名
                   </label>
-                  <Input id="company" />
+                  <Input id="company" name="user_company" />
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block font-medium mb-2">
                     お問い合わせ内容
                   </label>
-                  <Textarea id="message" required className="min-h-[150px]" />
+                  <Textarea id="message" name="message" required className="min-h-[150px]" />
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full">
