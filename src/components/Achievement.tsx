@@ -11,13 +11,13 @@ const Achievement = () => {
         </div>
         
         {/* First row */}
-        <div>
+        <div className="-mb-4">
           <Marquee
             speed={80}
             gradient={true}
             gradientColor="#333333"
             gradientWidth={100}
-            className="h-24"
+            className="h-20"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               バリワークスフィアPJ
@@ -29,14 +29,14 @@ const Achievement = () => {
         </div>
 
         {/* Second row - Reverse direction */}
-        <div>
+        <div className="-mb-4">
           <Marquee
             speed={80}
             gradient={true}
             gradientColor="#333333"
             gradientWidth={100}
             direction="right"
-            className="h-24"
+            className="h-20"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               和心ワラント5.5億引受
@@ -60,7 +60,7 @@ const Achievement = () => {
             gradient={true}
             gradientColor="#333333"
             gradientWidth={100}
-            className="h-24"
+            className="h-20"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               AI Smart Solutionsへの出資
