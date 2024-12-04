@@ -31,23 +31,41 @@ const Achievement = () => {
           {rows.map((achievements, rowIndex) => (
             <div key={rowIndex} className="relative w-full overflow-hidden h-28">
               <div className="flex whitespace-nowrap">
-                {/* First set of achievements */}
+                {/* First element */}
                 <motion.div
                   className="flex gap-12 items-center"
-                  initial={{ x: "-25%" }}
-                  animate={{
-                    x: ["-25%", "-125%"]
-                  }}
+                  initial={{ x: "0%" }}
+                  animate={{ x: "-100%" }}
                   transition={{
-                    duration: 40,
+                    duration: 20,
                     repeat: Infinity,
-                    ease: "linear",
-                    delay: rowIndex * 2
+                    ease: "linear"
                   }}
                 >
-                  {[...achievements, ...achievements].map((achievement, index) => (
+                  {achievements.map((achievement, index) => (
                     <span
                       key={`first-${index}`}
+                      className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
+                    >
+                      {achievement}
+                    </span>
+                  ))}
+                </motion.div>
+
+                {/* Second element that follows immediately */}
+                <motion.div
+                  className="flex gap-12 items-center absolute left-full"
+                  initial={{ x: "0%" }}
+                  animate={{ x: "-100%" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  {achievements.map((achievement, index) => (
+                    <span
+                      key={`second-${index}`}
                       className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
                     >
                       {achievement}
