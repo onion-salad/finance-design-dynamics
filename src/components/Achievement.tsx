@@ -34,8 +34,9 @@ const Achievement = () => {
                 {/* First set of achievements */}
                 <motion.div
                   className="flex gap-12 items-center"
+                  initial={{ x: "-25%" }}
                   animate={{
-                    x: ["100%", "-100%"]
+                    x: ["-25%", "-125%"]
                   }}
                   transition={{
                     duration: 40,
@@ -44,32 +45,9 @@ const Achievement = () => {
                     delay: rowIndex * 2
                   }}
                 >
-                  {achievements.map((achievement, index) => (
+                  {[...achievements, ...achievements].map((achievement, index) => (
                     <span
                       key={`first-${index}`}
-                      className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
-                </motion.div>
-
-                {/* Second set for seamless loop */}
-                <motion.div
-                  className="flex gap-12 items-center absolute left-full"
-                  animate={{
-                    x: ["100%", "-100%"]
-                  }}
-                  transition={{
-                    duration: 40,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: rowIndex * 2
-                  }}
-                >
-                  {achievements.map((achievement, index) => (
-                    <span
-                      key={`second-${index}`}
                       className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
                     >
                       {achievement}
