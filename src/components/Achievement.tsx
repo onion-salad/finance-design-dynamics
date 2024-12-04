@@ -2,13 +2,11 @@ import { realEstateProjects, financeProjects } from "@/data/achievements";
 import { motion } from "framer-motion";
 
 const Achievement = () => {
-  // 実績データを配列として結合
   const allAchievements = [
     ...realEstateProjects.map(p => p.title),
     ...financeProjects.map(p => p.title)
   ];
 
-  // 5行に分割するために配列を分割
   const splitIntoFive = (array: string[]) => {
     const size = Math.ceil(array.length / 5);
     return [
@@ -37,9 +35,10 @@ const Achievement = () => {
                   initial={{ x: "0%" }}
                   animate={{ x: "-100%" }}
                   transition={{
-                    duration: 20,
+                    duration: 30,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
+                    repeatDelay: -15 // 次のアニメーションがスタートするまでの待ち時間をマイナスにすることで、オーバーラップさせる
                   }}
                 >
                   {achievements.map((achievement, index) => (
@@ -52,15 +51,16 @@ const Achievement = () => {
                   ))}
                 </motion.div>
 
-                {/* Second element that follows immediately */}
+                {/* Second element */}
                 <motion.div
-                  className="flex gap-12 items-center absolute left-full"
+                  className="flex gap-12 items-center absolute left-[98%]"
                   initial={{ x: "0%" }}
                   animate={{ x: "-100%" }}
                   transition={{
-                    duration: 20,
+                    duration: 30,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
+                    repeatDelay: -15 // 同様にオーバーラップ
                   }}
                 >
                   {achievements.map((achievement, index) => (
