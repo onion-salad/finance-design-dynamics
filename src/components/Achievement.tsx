@@ -2,16 +2,16 @@ import Marquee from "react-fast-marquee";
 
 const Achievement = () => {
   return (
-    <section className="py-20 px-4 bg-primary overflow-hidden">
+    <section className="py-16 px-4 bg-primary overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center animate-fade-in">
           <span className="text-white/80 font-futura tracking-wider mb-2 block">Our Track Record</span>
           <h2 className="text-5xl font-futura font-bold mb-4 tracking-wider text-white">Trusted by</h2>
-          <div className="w-24 h-0.5 bg-white/30 mx-auto mb-12"></div>
+          <div className="w-24 h-0.5 bg-white/30 mx-auto mb-8"></div>
         </div>
         
         {/* First row */}
-        <div className="mb-2">
+        <div>
           <Marquee
             speed={80}
             gradient={true}
@@ -29,7 +29,7 @@ const Achievement = () => {
         </div>
 
         {/* Second row - Reverse direction */}
-        <div className="mb-2">
+        <div>
           <Marquee
             speed={80}
             gradient={true}
@@ -54,7 +54,7 @@ const Achievement = () => {
         </div>
 
         {/* Third row */}
-        <div className="mb-2">
+        <div>
           <Marquee
             speed={80}
             gradient={true}
