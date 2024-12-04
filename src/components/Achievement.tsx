@@ -17,7 +17,7 @@ const Achievement = () => {
                 duration: 15,
                 repeat: Infinity,
                 ease: "linear",
-                repeatDelay: -7.5 // 次のアニメーションがスタートするまでの待ち時間をマイナスにすることで、オーバーラップさせる
+                repeatDelay: -10 // より大きなオーバーラップを作成
               }}
             >
               <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider">
@@ -34,7 +34,24 @@ const Achievement = () => {
                 duration: 15,
                 repeat: Infinity,
                 ease: "linear",
-                repeatDelay: -7.5 // 同様にオーバーラップ
+                repeatDelay: -10
+              }}
+            >
+              <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider">
+                test
+              </span>
+            </motion.div>
+
+            {/* Third element for smoother transition */}
+            <motion.div
+              className="flex gap-12 items-center absolute left-[196%]"
+              initial={{ x: "0%" }}
+              animate={{ x: "-100%" }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: -10
               }}
             >
               <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider">
