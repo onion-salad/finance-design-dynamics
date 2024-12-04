@@ -10,7 +10,9 @@ const Achievement = () => {
         <div className="mb-4">
           <Marquee
             speed={80}
-            gradient={false}
+            gradient={true}
+            gradientColor="#333333"
+            gradientWidth={100}
             className="h-28"
           >
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
@@ -26,7 +28,9 @@ const Achievement = () => {
         <div className="mb-4">
           <Marquee
             speed={80}
-            gradient={false}
+            gradient={true}
+            gradientColor="#333333"
+            gradientWidth={100}
             className="h-28"
           >
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
@@ -48,7 +52,9 @@ const Achievement = () => {
         <div className="mb-4">
           <Marquee
             speed={80}
-            gradient={false}
+            gradient={true}
+            gradientColor="#333333"
+            gradientWidth={100}
             className="h-28"
           >
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
