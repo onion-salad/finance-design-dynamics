@@ -6,6 +6,31 @@ const Achievement = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-futura font-bold mb-12 text-center tracking-wider text-white">Trusted by</h2>
         
+        {/* First row */}
+        <div className="relative w-full overflow-hidden h-28 mb-4">
+          <motion.div
+            className="flex gap-12 items-center"
+            initial={{ x: "100%" }}
+            animate={{ x: "-100%" }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider">
+              バリワークスフィアPJ
+            </span>
+            <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider ml-[10px]">
+              LOFT HOTEL Brand
+            </span>
+            <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider ml-[10px]">
+              バリワークスフィアPJ
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Second row */}
         <div className="relative w-full overflow-hidden h-28">
           <motion.div
             className="flex gap-12 items-center"
