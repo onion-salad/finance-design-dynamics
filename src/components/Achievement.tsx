@@ -16,6 +16,9 @@ const Achievement = () => {
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
               バリワークスフィアPJ
             </span>
+            <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
+              LOFT HOTEL Brand
+            </span>
           </Marquee>
         </div>
       </div>
