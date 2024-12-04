@@ -1,11 +1,13 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-interface EmailParams {
+interface EmailRequest {
   name: string;
   email: string;
   company?: string;
@@ -19,34 +21,37 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, company, message } = await req.json() as EmailParams;
+    const { name, email, company, message } = await req.json() as EmailRequest;
 
-    const templateParams = {
-      user_name: name,
-      user_email: email,
-      user_company: company || '',
-      message: message,
-    };
-
-    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        service_id: Deno.env.get('EMAILJS_SERVICE_ID'),
-        template_id: Deno.env.get('EMAILJS_TEMPLATE_ID'),
-        user_id: Deno.env.get('EMAILJS_PUBLIC_KEY'),
-        template_params: templateParams,
+        from: 'Concentric <info@concentric.co.jp>',
+        to: ['info@concentric.co.jp'],
+        subject: `お問い合わせ: ${name}様より`,
+        html: `
+          <h2>お問い合わせ内容</h2>
+          <p><strong>お名前:</strong> ${name}</p>
+          <p><strong>メールアドレス:</strong> ${email}</p>
+          ${company ? `<p><strong>会社名:</strong> ${company}</p>` : ''}
+          <p><strong>メッセージ:</strong></p>
+          <p>${message}</p>
+        `,
       }),
     });
 
-    if (!response.ok) {
-      throw new Error(`EmailJS API error: ${response.statusText}`);
+    if (!res.ok) {
+      throw new Error(`Resend API error: ${res.statusText}`);
     }
 
+    const data = await res.json();
+    
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: true, data }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 200,
