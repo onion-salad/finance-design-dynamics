@@ -25,10 +25,10 @@ const Achievement = () => {
               LOFT HOTEL Brand
             </span>
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
-              LOFT HOTEL Brand
+              バリワークスフィアPJ
             </span>
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider whitespace-nowrap">
-              バリワークスフィアPJ
+              LOFT HOTEL Brand
             </span>
           </motion.div>
         </div>
