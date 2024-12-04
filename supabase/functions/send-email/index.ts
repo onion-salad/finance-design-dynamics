@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import * as emailjs from '@emailjs/browser';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -29,12 +28,22 @@ serve(async (req) => {
       message: message,
     };
 
-    await emailjs.send(
-      Deno.env.get('EMAILJS_SERVICE_ID') || '',
-      Deno.env.get('EMAILJS_TEMPLATE_ID') || '',
-      templateParams,
-      Deno.env.get('EMAILJS_PUBLIC_KEY') || ''
-    );
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: Deno.env.get('EMAILJS_SERVICE_ID'),
+        template_id: Deno.env.get('EMAILJS_TEMPLATE_ID'),
+        user_id: Deno.env.get('EMAILJS_PUBLIC_KEY'),
+        template_params: templateParams,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`EmailJS API error: ${response.statusText}`);
+    }
 
     return new Response(
       JSON.stringify({ success: true }),
