@@ -21,17 +21,17 @@ const Achievement = () => {
   const rows = splitIntoThree(allCompanies);
 
   return (
-    <section className="py-32 px-4 bg-primary overflow-hidden">
+    <section className="py-20 px-4 bg-primary overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-futura font-bold mb-20 text-center tracking-wider text-white">Trusted by</h2>
+        <h2 className="text-4xl font-futura font-bold mb-12 text-center tracking-wider text-white">Trusted by</h2>
         
-        <div className="space-y-8">
+        <div className="space-y-4">
           {rows.map((companies, rowIndex) => (
-            <div key={rowIndex} className="relative w-full overflow-hidden h-24">
+            <div key={rowIndex} className="relative w-full overflow-hidden h-20">
               <div className="flex whitespace-nowrap">
                 {/* First set of companies */}
                 <motion.div
-                  className="flex gap-6 items-center"
+                  className="flex gap-4 items-center"
                   animate={{
                     x: ["100%", "-100%"]
                   }}
@@ -45,7 +45,7 @@ const Achievement = () => {
                   {companies.map((company, index) => (
                     <span
                       key={`first-${index}`}
-                      className="text-3xl font-futura font-bold text-white/90 px-4 tracking-wider"
+                      className="text-4xl font-futura font-bold text-white/90 px-3 tracking-wider"
                     >
                       {company}
                     </span>
@@ -54,7 +54,7 @@ const Achievement = () => {
 
                 {/* Second set for seamless loop */}
                 <motion.div
-                  className="flex gap-6 items-center absolute left-full"
+                  className="flex gap-4 items-center absolute left-full"
                   animate={{
                     x: ["100%", "-100%"]
                   }}
@@ -68,7 +68,7 @@ const Achievement = () => {
                   {companies.map((company, index) => (
                     <span
                       key={`second-${index}`}
-                      className="text-3xl font-futura font-bold text-white/90 px-4 tracking-wider"
+                      className="text-4xl font-futura font-bold text-white/90 px-3 tracking-wider"
                     >
                       {company}
                     </span>
