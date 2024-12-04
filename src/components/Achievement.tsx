@@ -1,5 +1,6 @@
 import { realEstateProjects, financeProjects } from "@/data/achievements";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
+import { useEffect } from "react";
 
 const Achievement = () => {
   const allAchievements = [
@@ -29,49 +30,23 @@ const Achievement = () => {
           {rows.map((achievements, rowIndex) => (
             <div key={rowIndex} className="relative w-full overflow-hidden h-28">
               <div className="flex whitespace-nowrap">
-                {/* First element */}
-                <motion.div
-                  className="flex gap-12 items-center"
-                  initial={{ x: "0%" }}
-                  animate={{ x: "-100%" }}
-                  transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatDelay: -15 // 次のアニメーションがスタートするまでの待ち時間をマイナスにすることで、オーバーラップさせる
-                  }}
-                >
-                  {achievements.map((achievement, index) => (
-                    <span
-                      key={`first-${index}`}
-                      className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
-                </motion.div>
-
-                {/* Second element */}
-                <motion.div
-                  className="flex gap-12 items-center absolute left-[98%]"
-                  initial={{ x: "0%" }}
-                  animate={{ x: "-100%" }}
-                  transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                    repeatDelay: -15 // 同様にオーバーラップ
-                  }}
-                >
-                  {achievements.map((achievement, index) => (
-                    <span
-                      key={`second-${index}`}
-                      className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
-                </motion.div>
+                {achievements.map((achievement, index) => (
+                  <motion.span
+                    key={index}
+                    className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider absolute left-full"
+                    initial={{ x: "0%" }}
+                    animate={{ x: "-100vw" }}
+                    transition={{
+                      duration: 15,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: index * 3, // 各要素に3秒の遅延を設定
+                      repeatDelay: (achievements.length - index - 1) * 3 // 最後の要素が終わってから次のループまでの待ち時間を調整
+                    }}
+                  >
+                    {achievement}
+                  </motion.span>
+                ))}
               </div>
 
               {/* Gradient overlays for smooth fade in/out */}
