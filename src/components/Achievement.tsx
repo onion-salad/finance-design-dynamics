@@ -20,6 +20,9 @@ const Achievement = () => {
             <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider">
               test
             </span>
+            <span className="text-6xl font-futura font-bold text-white/90 px-6 tracking-wider ml-[10px]">
+              banana
+            </span>
           </motion.div>
         </div>
       </div>
