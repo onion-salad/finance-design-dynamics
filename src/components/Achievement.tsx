@@ -9,7 +9,7 @@ const Achievement = () => {
         {/* First row */}
         <div className="mb-4">
           <Marquee
-            speed={50}
+            speed={80}
             gradient={false}
             className="h-28"
           >
@@ -25,7 +25,7 @@ const Achievement = () => {
         {/* Second row */}
         <div className="mb-4">
           <Marquee
-            speed={50}
+            speed={80}
             gradient={false}
             className="h-28"
           >
@@ -47,7 +47,7 @@ const Achievement = () => {
         {/* Third row */}
         <div className="mb-4">
           <Marquee
-            speed={50}
+            speed={80}
             gradient={false}
             className="h-28"
           >
