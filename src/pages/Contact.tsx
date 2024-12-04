@@ -5,12 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
   const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,6 +20,8 @@ const Contact = () => {
       console.error('フォームの参照が見つかりません');
       return;
     }
+
+    setIsSubmitting(true);
 
     const formData = {
       name: form.current.user_name.value,
@@ -49,6 +52,8 @@ const Contact = () => {
         description: "送信に失敗しました。時間をおいて再度お試しください。",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -143,8 +148,13 @@ const Contact = () => {
                   <Textarea id="message" name="message" required className="min-h-[150px]" />
                 </div>
                 
-                <Button type="submit" size="lg" className="w-full">
-                  送信する
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "送信中..." : "送信する"}
                 </Button>
               </form>
             </motion.div>

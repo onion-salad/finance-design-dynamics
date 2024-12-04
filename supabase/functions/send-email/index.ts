@@ -30,8 +30,8 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Concentric <info@concentric.co.jp>',
-        to: ['info@concentric.co.jp'],
+        from: 'Concentric <onboarding@resend.dev>',
+        to: ['your-email@example.com'], // ここにご自身のメールアドレスを入力してください
         subject: `お問い合わせ: ${name}様より`,
         html: `
           <h2>お問い合わせ内容</h2>
