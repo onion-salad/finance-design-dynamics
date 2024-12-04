@@ -2,23 +2,25 @@ import { realEstateProjects, financeProjects } from "@/data/achievements";
 import { motion } from "framer-motion";
 
 const Achievement = () => {
-  // 会社名のみを抽出して配列を作成
-  const allCompanies = [
-    ...realEstateProjects.map(p => p.title.split(/[（(]/)[0].trim()),
-    ...financeProjects.map(p => p.title.split(/[（(]/)[0].trim())
+  // 実績データを配列として結合
+  const allAchievements = [
+    ...realEstateProjects.map(p => p.title),
+    ...financeProjects.map(p => p.title)
   ];
 
-  // 3行に分割するために配列を分割
-  const splitIntoThree = (array: string[]) => {
-    const size = Math.ceil(array.length / 3);
+  // 5行に分割するために配列を分割
+  const splitIntoFive = (array: string[]) => {
+    const size = Math.ceil(array.length / 5);
     return [
       array.slice(0, size),
       array.slice(size, size * 2),
-      array.slice(size * 2)
+      array.slice(size * 2, size * 3),
+      array.slice(size * 3, size * 4),
+      array.slice(size * 4)
     ];
   };
 
-  const rows = splitIntoThree(allCompanies);
+  const rows = splitIntoFive(allAchievements);
 
   return (
     <section className="py-20 px-4 bg-primary overflow-hidden">
@@ -26,10 +28,10 @@ const Achievement = () => {
         <h2 className="text-4xl font-futura font-bold mb-12 text-center tracking-wider text-white">Trusted by</h2>
         
         <div className="space-y-4">
-          {rows.map((companies, rowIndex) => (
+          {rows.map((achievements, rowIndex) => (
             <div key={rowIndex} className="relative w-full overflow-hidden h-20">
               <div className="flex whitespace-nowrap">
-                {/* First set of companies */}
+                {/* First set of achievements */}
                 <motion.div
                   className="flex gap-4 items-center"
                   animate={{
@@ -42,12 +44,12 @@ const Achievement = () => {
                     delay: rowIndex * 2
                   }}
                 >
-                  {companies.map((company, index) => (
+                  {achievements.map((achievement, index) => (
                     <span
                       key={`first-${index}`}
                       className="text-4xl font-futura font-bold text-white/90 px-3 tracking-wider"
                     >
-                      {company}
+                      {achievement}
                     </span>
                   ))}
                 </motion.div>
@@ -65,12 +67,12 @@ const Achievement = () => {
                     delay: rowIndex * 2
                   }}
                 >
-                  {companies.map((company, index) => (
+                  {achievements.map((achievement, index) => (
                     <span
                       key={`second-${index}`}
                       className="text-4xl font-futura font-bold text-white/90 px-3 tracking-wider"
                     >
-                      {company}
+                      {achievement}
                     </span>
                   ))}
                 </motion.div>
