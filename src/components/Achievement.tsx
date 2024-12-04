@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 const Achievement = () => {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-primary to-primary/90 overflow-hidden relative">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16 animate-fade-in">
           <span className="text-white/70 text-lg font-medium mb-4 block">Our Track Record</span>
