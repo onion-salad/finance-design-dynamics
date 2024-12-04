@@ -17,7 +17,7 @@ const Achievement = () => {
             gradient={true}
             gradientColor="#333333"
             gradientWidth={100}
-            className="h-20"
+            className="h-24"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               バリワークスフィアPJ
@@ -36,7 +36,7 @@ const Achievement = () => {
             gradientColor="#333333"
             gradientWidth={100}
             direction="right"
-            className="h-20"
+            className="h-24"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               和心ワラント5.5億引受
@@ -60,7 +60,7 @@ const Achievement = () => {
             gradient={true}
             gradientColor="#333333"
             gradientWidth={100}
-            className="h-20"
+            className="h-24"
           >
             <span className="text-5xl font-futura font-bold text-white/90 px-8 tracking-wider whitespace-nowrap hover:text-white transition-colors">
               AI Smart Solutionsへの出資
